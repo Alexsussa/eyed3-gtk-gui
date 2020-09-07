@@ -1,0 +1,692 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.22.1 -->
+<interface>
+  <requires lib="gtk+" version="3.20"/>
+  <object class="GtkFileFilter" id="audiofiles">
+    <mime-types>
+      <mime-type>*.mp3</mime-type>
+    </mime-types>
+    <patterns>
+      <pattern>*.mp3</pattern>
+    </patterns>
+  </object>
+  <object class="GtkDialog" id="aviso">
+    <property name="can_focus">False</property>
+    <property name="title" translatable="yes">Status</property>
+    <property name="resizable">False</property>
+    <property name="default_width">400</property>
+    <property name="default_height">150</property>
+    <property name="type_hint">dialog</property>
+    <property name="deletable">False</property>
+    <child>
+      <placeholder/>
+    </child>
+    <child internal-child="vbox">
+      <object class="GtkBox">
+        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child internal-child="action_area">
+          <object class="GtkButtonBox">
+            <property name="can_focus">False</property>
+            <property name="layout_style">end</property>
+            <child>
+              <object class="GtkButton" id="btnavisok">
+                <property name="label">gtk-ok</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="use_stock">True</property>
+                <signal name="clicked" handler="on_btnavisok_clicked" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+        <child type="center">
+          <object class="GtkLabel" id="lbaviso">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">All tags from audio are update</property>
+            <property name="justify">center</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkWindow" id="eyed3">
+    <property name="width_request">700</property>
+    <property name="height_request">500</property>
+    <property name="can_focus">False</property>
+    <property name="title" translatable="yes">eyeD3</property>
+    <property name="resizable">False</property>
+    <property name="icon">icons/eyed3.png</property>
+    <signal name="destroy" handler="on_eyed3_destroy" swapped="no"/>
+    <child type="titlebar">
+      <placeholder/>
+    </child>
+    <child>
+      <object class="GtkLayout">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <child>
+          <object class="GtkLabel" id="lbtitle">
+            <property name="width_request">100</property>
+            <property name="height_request">20</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Title</property>
+          </object>
+          <packing>
+            <property name="x">5</property>
+            <property name="y">40</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="lbartist">
+            <property name="width_request">100</property>
+            <property name="height_request">20</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Artist</property>
+          </object>
+          <packing>
+            <property name="x">232</property>
+            <property name="y">40</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="lbalbum">
+            <property name="width_request">100</property>
+            <property name="height_request">20</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Album</property>
+          </object>
+          <packing>
+            <property name="x">12</property>
+            <property name="y">88</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="lbalbumartist">
+            <property name="width_request">100</property>
+            <property name="height_request">20</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Album Artist</property>
+          </object>
+          <packing>
+            <property name="x">251</property>
+            <property name="y">87</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="txttitle">
+            <property name="width_request">183</property>
+            <property name="height_request">28</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+          </object>
+          <packing>
+            <property name="x">75</property>
+            <property name="y">36</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="txtartist">
+            <property name="width_request">202</property>
+            <property name="height_request">28</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+          </object>
+          <packing>
+            <property name="x">305</property>
+            <property name="y">36</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="txtalbum">
+            <property name="width_request">168</property>
+            <property name="height_request">28</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+          </object>
+          <packing>
+            <property name="x">88</property>
+            <property name="y">83</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="txtalbumartist">
+            <property name="width_request">179</property>
+            <property name="height_request">28</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+          </object>
+          <packing>
+            <property name="x">344</property>
+            <property name="y">83</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="lbtracknun">
+            <property name="width_request">100</property>
+            <property name="height_request">20</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Track Number</property>
+          </object>
+          <packing>
+            <property name="x">510</property>
+            <property name="y">40</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="lbgenre">
+            <property name="width_request">100</property>
+            <property name="height_request">20</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Genre</property>
+          </object>
+          <packing>
+            <property name="x">17</property>
+            <property name="y">132</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="lbyear">
+            <property name="width_request">100</property>
+            <property name="height_request">20</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Year</property>
+          </object>
+          <packing>
+            <property name="x">168</property>
+            <property name="y">132</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="txtyear">
+            <property name="width_request">58</property>
+            <property name="height_request">28</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="max_length">4</property>
+            <property name="width_chars">4</property>
+            <property name="input_purpose">number</property>
+          </object>
+          <packing>
+            <property name="x">236</property>
+            <property name="y">129</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="txtgenre">
+            <property name="width_request">105</property>
+            <property name="height_request">28</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="max_length">10</property>
+            <property name="width_chars">10</property>
+          </object>
+          <packing>
+            <property name="x">94</property>
+            <property name="y">128</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="txtlyrics">
+            <property name="width_request">98</property>
+            <property name="height_request">28</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="tooltip_markup" translatable="yes">Select a txt file with lyrics by clicking the button</property>
+            <property name="width_chars">10</property>
+            <property name="max_width_chars">10</property>
+          </object>
+          <packing>
+            <property name="x">303</property>
+            <property name="y">129</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="txtcover">
+            <property name="width_request">115</property>
+            <property name="height_request">28</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="tooltip_text" translatable="yes">Select an image file as front cover by clicking the button</property>
+            <property name="width_chars">10</property>
+            <property name="max_width_chars">10</property>
+          </object>
+          <packing>
+            <property name="x">480</property>
+            <property name="y">129</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="btnloadcover">
+            <property name="label" translatable="yes">Cover</property>
+            <property name="width_request">69</property>
+            <property name="height_request">34</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="tooltip_markup" translatable="yes">Select an image file as front cover</property>
+            <signal name="clicked" handler="on_btnloadcover_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">600</property>
+            <property name="y">126</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="btnloadlyrics">
+            <property name="label" translatable="yes">Lyrics</property>
+            <property name="width_request">66</property>
+            <property name="height_request">34</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="tooltip_markup" translatable="yes">Select a txt file with lyrics</property>
+            <signal name="clicked" handler="on_btnloadlyrics_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">407</property>
+            <property name="y">126</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="txtaudio">
+            <property name="width_request">241</property>
+            <property name="height_request">28</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="tooltip_markup" translatable="yes">Select an audio file by clicking the button</property>
+          </object>
+          <packing>
+            <property name="x">50</property>
+            <property name="y">177</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="btnloadaudio">
+            <property name="label" translatable="yes">Load Audio</property>
+            <property name="width_request">120</property>
+            <property name="height_request">34</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="tooltip_markup" translatable="yes">Select an audio file</property>
+            <signal name="clicked" handler="on_btnloadaudio_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">299</property>
+            <property name="y">174</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="btnsavetags">
+            <property name="label" translatable="yes">Save Tags</property>
+            <property name="width_request">100</property>
+            <property name="height_request">34</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="tooltip_markup" translatable="yes">Save all tags into the audio file</property>
+            <signal name="clicked" handler="on_btnsavetags_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">553</property>
+            <property name="y">174</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="btnclearfields">
+            <property name="label" translatable="yes">Clear Fields</property>
+            <property name="width_request">119</property>
+            <property name="height_request">34</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="tooltip_markup" translatable="yes">Clear all fields</property>
+            <signal name="clicked" handler="on_btnclearfields_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">426</property>
+            <property name="y">174</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkSpinner" id="spinner">
+            <property name="width_request">100</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+          </object>
+          <packing>
+            <property name="x">301</property>
+            <property name="y">255</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="txttracknum">
+            <property name="width_request">50</property>
+            <property name="height_request">28</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="max_length">4</property>
+            <property name="width_chars">4</property>
+            <property name="max_width_chars">4</property>
+          </object>
+          <packing>
+            <property name="x">611</property>
+            <property name="y">35</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="btnremove">
+            <property name="label" translatable="yes">Remove All Tags</property>
+            <property name="width_request">127</property>
+            <property name="height_request">34</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="tooltip_markup" translatable="yes">Remove completly all tags from audio</property>
+            <signal name="clicked" handler="on_btnremove_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">536</property>
+            <property name="y">79</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkImage">
+            <property name="width_request">256</property>
+            <property name="height_request">256</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="pixbuf">icons/bg.png</property>
+          </object>
+          <packing>
+            <property name="x">227</property>
+            <property name="y">224</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkFileChooserDialog" id="loadaudio">
+    <property name="can_focus">False</property>
+    <property name="title" translatable="yes">Choose an audio file</property>
+    <property name="modal">True</property>
+    <property name="type_hint">dialog</property>
+    <property name="deletable">False</property>
+    <property name="transient_for">eyed3</property>
+    <property name="filter">audiofiles</property>
+    <signal name="file-activated" handler="on_loadaudio_file_activated" swapped="no"/>
+    <child type="titlebar">
+      <placeholder/>
+    </child>
+    <child internal-child="vbox">
+      <object class="GtkBox">
+        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child internal-child="action_area">
+          <object class="GtkButtonBox">
+            <property name="can_focus">False</property>
+            <property name="layout_style">end</property>
+            <child>
+              <object class="GtkButton" id="btnloadaudiocance">
+                <property name="label">gtk-cancel</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="use_stock">True</property>
+                <signal name="clicked" handler="on_btnloadaudiocance_clicked" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="btnloadaudioopen">
+                <property name="label">gtk-open</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="use_stock">True</property>
+                <signal name="clicked" handler="on_btnloadaudioopen_clicked" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkComboBoxText">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="margin_left">500</property>
+            <property name="margin_right">6</property>
+            <property name="active">0</property>
+            <items>
+              <item translatable="yes">*.mp3</item>
+            </items>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkFileFilter" id="images">
+    <mime-types>
+      <mime-type>*.png</mime-type>
+      <mime-type>*.jpg</mime-type>
+      <mime-type>*.jpeg</mime-type>
+      <mime-type>*.gif</mime-type>
+    </mime-types>
+    <patterns>
+      <pattern>*.png</pattern>
+      <pattern>*.jpg</pattern>
+      <pattern>*.jpeg</pattern>
+      <pattern>*.gif</pattern>
+    </patterns>
+  </object>
+  <object class="GtkFileChooserDialog" id="loadcover">
+    <property name="can_focus">False</property>
+    <property name="title" translatable="yes">Choose an image file as cover</property>
+    <property name="modal">True</property>
+    <property name="type_hint">dialog</property>
+    <property name="deletable">False</property>
+    <property name="transient_for">eyed3</property>
+    <property name="filter">images</property>
+    <signal name="file-activated" handler="on_loadcover_file_activated" swapped="no"/>
+    <child>
+      <placeholder/>
+    </child>
+    <child internal-child="vbox">
+      <object class="GtkBox">
+        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child internal-child="action_area">
+          <object class="GtkButtonBox">
+            <property name="can_focus">False</property>
+            <property name="layout_style">end</property>
+            <child>
+              <object class="GtkButton" id="btnloadcovercancel">
+                <property name="label">gtk-cancel</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="use_stock">True</property>
+                <signal name="clicked" handler="on_btnloadcovercancel_clicked" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="btnloadcoveropen">
+                <property name="label">gtk-open</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="use_stock">True</property>
+                <signal name="clicked" handler="on_btnloadcoveropen_clicked" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkComboBoxText">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="margin_left">400</property>
+            <property name="margin_right">6</property>
+            <property name="active">0</property>
+            <items>
+              <item translatable="yes">*.png, *.jpg, *.jpeg, *.gif</item>
+            </items>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkFileFilter" id="txtfiles">
+    <mime-types>
+      <mime-type>*.txt</mime-type>
+    </mime-types>
+    <patterns>
+      <pattern>*.txt</pattern>
+    </patterns>
+  </object>
+  <object class="GtkFileChooserDialog" id="loadlyrics">
+    <property name="can_focus">False</property>
+    <property name="title" translatable="yes">Choose a text file with lyrics</property>
+    <property name="modal">True</property>
+    <property name="type_hint">dialog</property>
+    <property name="deletable">False</property>
+    <property name="transient_for">eyed3</property>
+    <property name="filter">txtfiles</property>
+    <signal name="file-activated" handler="on_loadlyrics_file_activated" swapped="no"/>
+    <child>
+      <placeholder/>
+    </child>
+    <child internal-child="vbox">
+      <object class="GtkBox">
+        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child internal-child="action_area">
+          <object class="GtkButtonBox">
+            <property name="can_focus">False</property>
+            <property name="layout_style">end</property>
+            <child>
+              <object class="GtkButton" id="btnloadlyricscancel">
+                <property name="label">gtk-cancel</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="use_stock">True</property>
+                <signal name="clicked" handler="on_btnloadlyricscancel_clicked" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="btnloadlyricsopen">
+                <property name="label">gtk-open</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="use_stock">True</property>
+                <signal name="clicked" handler="on_btnloadlyricsopen_clicked" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkComboBoxText">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="margin_left">500</property>
+            <property name="margin_right">6</property>
+            <property name="active">0</property>
+            <items>
+              <item translatable="yes">*.txt</item>
+            </items>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

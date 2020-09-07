@@ -1,0 +1,142 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-09-07 12:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: eyed3.ui:502
+msgid "*.mp3"
+msgstr ""
+
+#: eyed3.ui:594
+msgid "*.png, *.jpg, *.jpeg, *.gif"
+msgstr ""
+
+#: eyed3.ui:680
+msgid "*.txt"
+msgstr ""
+
+#: eyed3.ui:118
+msgid "Album"
+msgstr ""
+
+#: eyed3.ui:131
+msgid "Album Artist"
+msgstr ""
+
+#: eyed3.ui:59
+msgid "All tags from audio are update"
+msgstr ""
+
+#: eyed3.ui:105
+msgid "Artist"
+msgstr ""
+
+#: eyed3.ui:616
+msgid "Choose a text file with lyrics"
+msgstr ""
+
+#: eyed3.ui:438
+msgid "Choose an audio file"
+msgstr ""
+
+#: eyed3.ui:530
+msgid "Choose an image file as cover"
+msgstr ""
+
+#: eyed3.ui:363
+msgid "Clear Fields"
+msgstr ""
+
+#: eyed3.ui:369
+msgid "Clear all fields"
+msgstr ""
+
+#: eyed3.ui:286
+msgid "Cover"
+msgstr ""
+
+#: eyed3.ui:205
+msgid "Genre"
+msgstr ""
+
+#: eyed3.ui:331
+msgid "Load Audio"
+msgstr ""
+
+#: eyed3.ui:302
+msgid "Lyrics"
+msgstr ""
+
+#: eyed3.ui:406
+msgid "Remove All Tags"
+msgstr ""
+
+#: eyed3.ui:412
+msgid "Remove completly all tags from audio"
+msgstr ""
+
+#: eyed3.ui:347
+msgid "Save Tags"
+msgstr ""
+
+#: eyed3.ui:353
+msgid "Save all tags into the audio file"
+msgstr ""
+
+#: eyed3.ui:308
+msgid "Select a txt file with lyrics"
+msgstr ""
+
+#: eyed3.ui:260
+msgid "Select a txt file with lyrics by clicking the button"
+msgstr ""
+
+#: eyed3.ui:337
+msgid "Select an audio file"
+msgstr ""
+
+#: eyed3.ui:322
+msgid "Select an audio file by clicking the button"
+msgstr ""
+
+#: eyed3.ui:292
+msgid "Select an image file as front cover"
+msgstr ""
+
+#: eyed3.ui:275
+msgid "Select an image file as front cover by clicking the button"
+msgstr ""
+
+#: eyed3.ui:15
+msgid "Status"
+msgstr ""
+
+#: eyed3.ui:92
+msgid "Title"
+msgstr ""
+
+#: eyed3.ui:192
+msgid "Track Number"
+msgstr ""
+
+#: eyed3.ui:218
+msgid "Year"
+msgstr ""
+
+#: eyed3.ui:75
+msgid "eyeD3"
+msgstr ""

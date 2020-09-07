@@ -1,0 +1,143 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-09-07 12:27-0300\n"
+"PO-Revision-Date: 2020-09-07 12:51-0300\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.6\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: pt_BR\n"
+
+#: eyed3.ui:502
+msgid "*.mp3"
+msgstr "*.mp3"
+
+#: eyed3.ui:594
+msgid "*.png, *.jpg, *.jpeg, *.gif"
+msgstr "*.png, *.jpg, *.jpeg, *.gif"
+
+#: eyed3.ui:680
+msgid "*.txt"
+msgstr "*.txt"
+
+#: eyed3.ui:118
+msgid "Album"
+msgstr "Álbum"
+
+#: eyed3.ui:131
+msgid "Album Artist"
+msgstr "Artista Álbum"
+
+#: eyed3.ui:59
+msgid "All tags from audio are update"
+msgstr "Todas as tags do áudio foram atualizadas"
+
+#: eyed3.ui:105
+msgid "Artist"
+msgstr "Artista"
+
+#: eyed3.ui:616
+msgid "Choose a text file with lyrics"
+msgstr "Escolha um arquivo de texto com as letras da música"
+
+#: eyed3.ui:438
+msgid "Choose an audio file"
+msgstr "Escolha um arquivo de áudio"
+
+#: eyed3.ui:530
+msgid "Choose an image file as cover"
+msgstr "Escolha uma imagem como capa do álbum"
+
+#: eyed3.ui:363
+msgid "Clear Fields"
+msgstr "Limpar campos"
+
+#: eyed3.ui:369
+msgid "Clear all fields"
+msgstr "Limpar todos os campos"
+
+#: eyed3.ui:286
+msgid "Cover"
+msgstr "Capa"
+
+#: eyed3.ui:205
+msgid "Genre"
+msgstr "Gênero"
+
+#: eyed3.ui:331
+msgid "Load Audio"
+msgstr "Carregar áudio"
+
+#: eyed3.ui:302
+msgid "Lyrics"
+msgstr "Letras"
+
+#: eyed3.ui:406
+msgid "Remove All Tags"
+msgstr "Remover as tags"
+
+#: eyed3.ui:412
+msgid "Remove completly all tags from audio"
+msgstr "Remove completamente todas as tags do áudio"
+
+#: eyed3.ui:347
+msgid "Save Tags"
+msgstr "Salvar tags"
+
+#: eyed3.ui:353
+msgid "Save all tags into the audio file"
+msgstr "Salvar todas as tags dentro do arquivo de áudio"
+
+#: eyed3.ui:308
+msgid "Select a txt file with lyrics"
+msgstr "Selecione um arquivo de texto com as letras da música"
+
+#: eyed3.ui:260
+msgid "Select a txt file with lyrics by clicking the button"
+msgstr "Selecione um arquivo de texto com as letras da música clicando no botão"
+
+#: eyed3.ui:337
+msgid "Select an audio file"
+msgstr "Selecione um arquivo de áudio"
+
+#: eyed3.ui:322
+msgid "Select an audio file by clicking the button"
+msgstr "Selecione um arquivo de áudio clicando no botão"
+
+#: eyed3.ui:292
+msgid "Select an image file as front cover"
+msgstr "Selecione uma imagem como capa de álbum"
+
+#: eyed3.ui:275
+msgid "Select an image file as front cover by clicking the button"
+msgstr "Selecione uma imagem como capa de álbum clicando no botão"
+
+#: eyed3.ui:15
+msgid "Status"
+msgstr "Status"
+
+#: eyed3.ui:92
+msgid "Title"
+msgstr "Título"
+
+#: eyed3.ui:192
+msgid "Track Number"
+msgstr "Número da faixa"
+
+#: eyed3.ui:218
+msgid "Year"
+msgstr "Ano"
+
+#: eyed3.ui:75
+msgid "eyeD3"
+msgstr "eyeD3"
