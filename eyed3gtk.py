@@ -84,6 +84,7 @@ class eyeD3(Gtk.Window):
 
     def on_btnloadaudioopen_clicked(self, button):
         audio = self.loadaudio.get_filename()
+        os.system((f'eyeD3 "{audio}" --to-v2.4'))
         self.txtaudio.set_text(audio)
         self.loadaudio.hide()
         self.displayinfo()
@@ -93,6 +94,7 @@ class eyeD3(Gtk.Window):
 
     def on_loadaudio_file_activated(self, button):
         audio = self.loadaudio.get_filename()
+        os.system((f'eyeD3 "{audio}" --to-v2.4'))
         self.txtaudio.set_text(audio)
         self.loadaudio.hide()
         self.displayinfo()
@@ -152,11 +154,15 @@ class eyeD3(Gtk.Window):
         self.txtalbum.set_text(str(tag.album))
         self.txtalbumartist.set_text(str(tag.album_artist))
         self.txtgenre.set_text(str(tag.genre))
-        self.txtyear.set_text(str(tag.release_date))
-        if tag.release_date == 0:
-            self.txttracknum.set_text(str(tag.track_num)[1:])
+        if str(tag.track_num):
+            self.txttracknum.set_text(str(tag.track_num[0]).replace('None', '0'))
         else:
-            self.txttracknum.set_text(str(tag.track_num)[1:3].replace(',', ''))
+            self.txttracknum.set_text(str(tag.track_num[2]))
+
+        if str(tag.release_date):
+            self.txtyear.set_text(str(tag.release_date).replace('None', '0'))
+        else:
+            self.txtyear.set_text(str(tag.release_date[:]))
 
     def on_btnremove_clicked(self, button):
         audio = self.txtaudio.get_text()

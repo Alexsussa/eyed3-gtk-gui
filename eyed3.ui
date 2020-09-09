@@ -230,6 +230,7 @@
             <property name="can_focus">True</property>
             <property name="max_length">4</property>
             <property name="width_chars">4</property>
+            <property name="max_width_chars">4</property>
             <property name="input_purpose">number</property>
           </object>
           <packing>
@@ -394,7 +395,8 @@
             <property name="can_focus">True</property>
             <property name="max_length">4</property>
             <property name="width_chars">4</property>
-            <property name="max_width_chars">4</property>
+            <property name="max_width_chars">2</property>
+            <property name="input_purpose">number</property>
           </object>
           <packing>
             <property name="x">611</property>
