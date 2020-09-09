@@ -6,7 +6,6 @@ gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
 import os
 import sys
-import locale
 import gettext
 from eyed3 import id3
 import eyed3
@@ -28,7 +27,7 @@ else:
     sys.exit(-1)
 
 
-class eyeD3(Gtk.Window):
+class EyedGtk(Gtk.Window):
     def __init__(self):
         self.txttitle = builder.get_object('txttitle')
         self.txtartist = builder.get_object('txtartist')
@@ -190,7 +189,7 @@ class eyeD3(Gtk.Window):
 builder = Gtk.Builder()
 builder.set_translation_domain(appname)
 builder.add_from_file('eyed3.ui')
-builder.connect_signals(eyeD3())
+builder.connect_signals(EyedGtk())
 janela = builder.get_object(appname)
 janela.show_all()
 Gtk.main()
