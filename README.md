@@ -14,7 +14,7 @@ If you're a translator you can help the project translating the eyed3.pot file t
 
 Português Brasil:
 
-eyeD3 Gtk Gui é uma interface simples baseada na <a href="https://eyed3.readthedocs.io/en/latest/#documentation-index" target="_blank"> ferramenta de de linha de comando eyeD3</a>
+eyeD3 Gtk Gui é uma interface simples baseada na <a href="https://eyed3.readthedocs.io/en/latest/#documentation-index" target="_blank"> ferramenta de linha de comando eyeD3</a>
 
 eyeD3 Gtk Gui está em sua fase inicial de desenvolvimento, então ela funciona com coisas simples ainda.
 
