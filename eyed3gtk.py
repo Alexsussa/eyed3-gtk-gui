@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+# -*- encoding: utf-8 -*-
 
 import gi
 
@@ -12,9 +13,9 @@ import eyed3
 
 appname = 'eyed3'
 wami = os.path.abspath(os.path.realpath(__file__))
-dir = os.path.join(wami, 'mo')
+dirname = os.path.join(wami, 'mo')
 
-gettext.bindtextdomain(appname, dir)
+gettext.bindtextdomain(appname, dirname)
 gettext.textdomain(appname)
 _ = gettext.gettext
 
@@ -45,6 +46,14 @@ class EyedGtk(Gtk.Window):
         self.loading = builder.get_object('spinner')
         self.aviso = builder.get_object('aviso')
         self.lbaviso = builder.get_object('lbaviso')
+        self.about = builder.get_object('about')
+
+        # this makes the about window's close button works
+        self.about.connect('response', lambda d, r: d.hide())
+
+    # menu help >> about
+    def on_btnaboutmenu_activate(self, button):
+        self.about.show()
 
     # save all new tags
     def on_btnsavetags_clicked(self, button):
