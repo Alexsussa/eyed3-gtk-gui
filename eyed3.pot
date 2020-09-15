@@ -6,137 +6,163 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-07 12:27-0300\n"
+"POT-Creation-Date: 2020-09-15 09:36-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-#: eyed3.ui:502
-msgid "*.mp3"
-msgstr ""
-
-#: eyed3.ui:594
-msgid "*.png, *.jpg, *.jpeg, *.gif"
-msgstr ""
-
-#: eyed3.ui:680
-msgid "*.txt"
-msgstr ""
-
-#: eyed3.ui:118
-msgid "Album"
-msgstr ""
-
-#: eyed3.ui:131
-msgid "Album Artist"
-msgstr ""
-
-#: eyed3.ui:59
-msgid "All tags from audio are update"
-msgstr ""
-
-#: eyed3.ui:105
-msgid "Artist"
-msgstr ""
-
-#: eyed3.ui:616
-msgid "Choose a text file with lyrics"
-msgstr ""
-
-#: eyed3.ui:438
-msgid "Choose an audio file"
-msgstr ""
-
-#: eyed3.ui:530
-msgid "Choose an image file as cover"
-msgstr ""
-
-#: eyed3.ui:363
-msgid "Clear Fields"
-msgstr ""
-
-#: eyed3.ui:369
-msgid "Clear all fields"
-msgstr ""
-
-#: eyed3.ui:286
-msgid "Cover"
-msgstr ""
-
-#: eyed3.ui:205
-msgid "Genre"
-msgstr ""
-
-#: eyed3.ui:331
-msgid "Load Audio"
-msgstr ""
-
-#: eyed3.ui:302
-msgid "Lyrics"
-msgstr ""
-
-#: eyed3.ui:406
-msgid "Remove All Tags"
-msgstr ""
-
-#: eyed3.ui:412
-msgid "Remove completly all tags from audio"
-msgstr ""
-
-#: eyed3.ui:347
-msgid "Save Tags"
-msgstr ""
-
-#: eyed3.ui:353
-msgid "Save all tags into the audio file"
-msgstr ""
-
-#: eyed3.ui:308
-msgid "Select a txt file with lyrics"
-msgstr ""
-
-#: eyed3.ui:260
-msgid "Select a txt file with lyrics by clicking the button"
-msgstr ""
-
-#: eyed3.ui:337
-msgid "Select an audio file"
-msgstr ""
-
-#: eyed3.ui:322
-msgid "Select an audio file by clicking the button"
-msgstr ""
-
-#: eyed3.ui:292
-msgid "Select an image file as front cover"
-msgstr ""
-
-#: eyed3.ui:275
-msgid "Select an image file as front cover by clicking the button"
-msgstr ""
+"X-Generator: Poedit 2.0.6\n"
+"X-Poedit-KeywordsList: _\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: eyed3.ui\n"
+"X-Poedit-SearchPath-1: eyed3gtk.py\n"
 
 #: eyed3.ui:15
 msgid "Status"
 msgstr ""
 
-#: eyed3.ui:92
+#: eyed3.ui:60
+msgid "All tags from audio are update"
+msgstr ""
+
+#: eyed3.ui:76
+msgid "eyeD3"
+msgstr ""
+
+#: eyed3.ui:94
 msgid "Title"
 msgstr ""
 
-#: eyed3.ui:192
+#: eyed3.ui:107
+msgid "Artist"
+msgstr ""
+
+#: eyed3.ui:120
+msgid "Album"
+msgstr ""
+
+#: eyed3.ui:133
+msgid "Album Artist"
+msgstr ""
+
+#: eyed3.ui:195
 msgid "Track Number"
 msgstr ""
 
-#: eyed3.ui:218
+#: eyed3.ui:208
+msgid "Genre"
+msgstr ""
+
+#: eyed3.ui:221
 msgid "Year"
 msgstr ""
 
-#: eyed3.ui:75
-msgid "eyeD3"
+#: eyed3.ui:264
+msgid "Select a txt file with lyrics by clicking the button"
+msgstr ""
+
+#: eyed3.ui:279
+msgid "Select an image file as front cover by clicking the button"
+msgstr ""
+
+#: eyed3.ui:290
+msgid "Cover"
+msgstr ""
+
+#: eyed3.ui:296
+msgid "Select an image file as front cover"
+msgstr ""
+
+#: eyed3.ui:306
+msgid "Lyrics"
+msgstr ""
+
+#: eyed3.ui:312
+msgid "Select a txt file with lyrics"
+msgstr ""
+
+#: eyed3.ui:326
+msgid "Select an audio file by clicking the button"
+msgstr ""
+
+#: eyed3.ui:335
+msgid "Load Audio"
+msgstr ""
+
+#: eyed3.ui:341
+msgid "Select an audio file"
+msgstr ""
+
+#: eyed3.ui:351
+msgid "Save Tags"
+msgstr ""
+
+#: eyed3.ui:357
+msgid "Save all tags into the audio file"
+msgstr ""
+
+#: eyed3.ui:367
+msgid "Clear Fields"
+msgstr ""
+
+#: eyed3.ui:373
+msgid "Clear all fields"
+msgstr ""
+
+#: eyed3.ui:411
+msgid "Remove All Tags"
+msgstr ""
+
+#: eyed3.ui:417
+msgid "Remove completly all tags from audio"
+msgstr ""
+
+#: eyed3.ui:452
+msgid "Help"
+msgstr ""
+
+#: eyed3.ui:487
+msgid "About eyeD3 Gtk Gui"
+msgstr ""
+
+#: eyed3.ui:495
+msgid ""
+"This program was created in order to facilitate its use through a graphic interface, because it already exists and was based on the eyeD3 command line tool.\n"
+"Only necessary credit is that if the program is changed the respective creators names must be maintained of both softwares eyeD3 command line tool and the eyeD3 creator Gtk Gui must be maintained."
+msgstr ""
+
+#: eyed3.ui:498
+msgid "GitHub eyeD3 Gtk Gui"
+msgstr ""
+
+#: eyed3.ui:501
+msgid "Alex Pinheiro"
+msgstr ""
+
+#: eyed3.ui:532
+msgid "Choose an audio file"
+msgstr ""
+
+#: eyed3.ui:596
+msgid "*.mp3"
+msgstr ""
+
+#: eyed3.ui:624
+msgid "Choose an image file as cover"
+msgstr ""
+
+#: eyed3.ui:688
+msgid "*.png, *.jpg, *.jpeg, *.gif"
+msgstr ""
+
+#: eyed3.ui:710
+msgid "Choose a text file with lyrics"
+msgstr ""
+
+#: eyed3.ui:774
+msgid "*.txt"
 msgstr ""
