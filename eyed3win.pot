@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2020-09-10 17:31-0300\n"
+"POT-Creation-Date: 2020-10-02 13:25-0300\n"
 "PO-Revision-Date: 2020-09-10 17:29-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -11,116 +11,128 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.4.1\n"
-"X-Poedit-Basepath: ..\n"
+"X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-KeywordsList: _\n"
-"X-Poedit-SearchPath-0: locale\n"
-"X-Poedit-SearchPath-1: eyed3win.py\n"
+"X-Poedit-SearchPath-0: eyed3win.py\n"
+"X-Poedit-SearchPath-1: locale\n"
 
-#: eyed3win.py:54
+#: eyed3win.py:57
 msgid "Title"
 msgstr ""
 
-#: eyed3win.py:59
+#: eyed3win.py:62
 msgid "Artist"
 msgstr ""
 
-#: eyed3win.py:64
+#: eyed3win.py:67
 msgid "Track Number"
 msgstr ""
 
-#: eyed3win.py:69
+#: eyed3win.py:72
 msgid "Album"
 msgstr ""
 
-#: eyed3win.py:74
+#: eyed3win.py:77
 msgid "Album Artist"
 msgstr ""
 
-#: eyed3win.py:79
+#: eyed3win.py:82
 msgid "Remove All Tags"
 msgstr ""
 
-#: eyed3win.py:81
+#: eyed3win.py:84
 msgid "Remove completly all tags from audio"
 msgstr ""
 
-#: eyed3win.py:83
+#: eyed3win.py:86
 msgid "Genre"
 msgstr ""
 
-#: eyed3win.py:88
+#: eyed3win.py:91
 msgid "Year"
 msgstr ""
 
-#: eyed3win.py:95
+#: eyed3win.py:98
 msgid "Select a txt file with lyrics by clicking the button"
 msgstr ""
 
-#: eyed3win.py:96
+#: eyed3win.py:99
 msgid "Lyrics"
 msgstr ""
 
-#: eyed3win.py:98
+#: eyed3win.py:101
 msgid "Select a txt file with lyrics"
 msgstr ""
 
-#: eyed3win.py:102
+#: eyed3win.py:105
 msgid "Select an image file as front cover by clicking the button"
 msgstr ""
 
-#: eyed3win.py:103
+#: eyed3win.py:106
 msgid "Cover"
 msgstr ""
 
-#: eyed3win.py:105
+#: eyed3win.py:108
 msgid "Select an image file as front cover"
 msgstr ""
 
-#: eyed3win.py:109
+#: eyed3win.py:112
 msgid "Select an audio file by clicking the button"
 msgstr ""
 
-#: eyed3win.py:110
+#: eyed3win.py:113
 msgid "Load Audio"
 msgstr ""
 
-#: eyed3win.py:112
+#: eyed3win.py:115
 msgid "Select an audio file"
 msgstr ""
 
-#: eyed3win.py:114
+#: eyed3win.py:117
 msgid "Clear Fields"
 msgstr ""
 
-#: eyed3win.py:116
+#: eyed3win.py:119
 msgid "Clear all fields"
 msgstr ""
 
-#: eyed3win.py:118
+#: eyed3win.py:121
 msgid "Save Tags"
 msgstr ""
 
-#: eyed3win.py:120
+#: eyed3win.py:123
 msgid "Save all tags into the audio file"
 msgstr ""
 
-#: eyed3win.py:165
+#: eyed3win.py:133
+msgid "Cut"
+msgstr ""
+
+#: eyed3win.py:134
+msgid "Copy"
+msgstr ""
+
+#: eyed3win.py:135
+msgid "Paste"
+msgstr ""
+
+#: eyed3win.py:182
 msgid "All audio tags are saved."
 msgstr ""
 
-#: eyed3win.py:165
+#: eyed3win.py:182
 msgid "Reaload the audio file to make sure the new tags were set."
 msgstr ""
 
-#: eyed3win.py:169
+#: eyed3win.py:186
 msgid "Open an audio file"
 msgstr ""
 
-#: eyed3win.py:177
+#: eyed3win.py:194
 msgid "Open a text file with lyrics"
 msgstr ""
 
-#: eyed3win.py:187
+#: eyed3win.py:204
 msgid "Choose an image file as cover"
 msgstr ""

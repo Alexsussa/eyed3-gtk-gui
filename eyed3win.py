@@ -125,6 +125,20 @@ class EyedWin:
 
         self.bg.image = self.bgimg
 
+        self.mouseMenu = Menu(window, tearoff=0)
+        self.mouseMenu.add_command(label=_('Cut'))
+        self.mouseMenu.add_command(label=_('Copy'))
+        self.mouseMenu.add_command(label=_('Paste'))
+        window.bind('<Button-3><ButtonRelease-3>', self.mouse)
+
+    # mouse menu
+    def mouse(self, event):
+        w = event.widget
+        self.mouseMenu.entryconfigure(_("Cut"), command=lambda: w.event_generate('<<Cut>>'))
+        self.mouseMenu.entryconfigure(_("Copy"), command=lambda: w.event_generate('<<Copy>>'))
+        self.mouseMenu.entryconfigure(_("Paste"), command=lambda: w.event_generate('<<Paste>>'))
+        self.mouseMenu.tk_popup(event.x_root, event.y_root)
+
     # save all new tags
     def btnSaveTags(self):
         title = self.txttitle.get()
