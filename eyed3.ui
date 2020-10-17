@@ -530,7 +530,7 @@ Only necessary credit is that if the program is changed the respective creators 
   <object class="GtkFileChooserDialog" id="loadaudio">
     <property name="can_focus">False</property>
     <property name="title" translatable="yes">Choose an audio file</property>
-    <property name="modal">True</property>
+    <property name="destroy_with_parent">True</property>
     <property name="type_hint">dialog</property>
     <property name="deletable">False</property>
     <property name="transient_for">eyed3</property>
@@ -582,13 +582,14 @@ Only necessary credit is that if the program is changed the respective creators 
           <packing>
             <property name="expand">False</property>
             <property name="fill">False</property>
-            <property name="position">0</property>
+            <property name="position">1</property>
           </packing>
         </child>
         <child>
           <object class="GtkComboBoxText">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="halign">end</property>
             <property name="margin_left">500</property>
             <property name="margin_right">6</property>
             <property name="active">0</property>
@@ -598,7 +599,7 @@ Only necessary credit is that if the program is changed the respective creators 
           </object>
           <packing>
             <property name="expand">False</property>
-            <property name="fill">True</property>
+            <property name="fill">False</property>
             <property name="position">2</property>
           </packing>
         </child>
@@ -621,14 +622,13 @@ Only necessary credit is that if the program is changed the respective creators 
   </object>
   <object class="GtkFileChooserDialog" id="loadcover">
     <property name="can_focus">False</property>
-    <property name="title" translatable="yes">Choose an image file as cover</property>
-    <property name="modal">True</property>
+    <property name="destroy_with_parent">True</property>
     <property name="type_hint">dialog</property>
     <property name="deletable">False</property>
     <property name="transient_for">eyed3</property>
     <property name="filter">images</property>
     <signal name="file-activated" handler="on_loadcover_file_activated" swapped="no"/>
-    <child>
+    <child type="titlebar">
       <placeholder/>
     </child>
     <child internal-child="vbox">
@@ -681,6 +681,7 @@ Only necessary credit is that if the program is changed the respective creators 
           <object class="GtkComboBoxText">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="halign">end</property>
             <property name="margin_left">400</property>
             <property name="margin_right">6</property>
             <property name="active">0</property>
@@ -690,7 +691,7 @@ Only necessary credit is that if the program is changed the respective creators 
           </object>
           <packing>
             <property name="expand">False</property>
-            <property name="fill">True</property>
+            <property name="fill">False</property>
             <property name="position">2</property>
           </packing>
         </child>
@@ -707,14 +708,13 @@ Only necessary credit is that if the program is changed the respective creators 
   </object>
   <object class="GtkFileChooserDialog" id="loadlyrics">
     <property name="can_focus">False</property>
-    <property name="title" translatable="yes">Choose a text file with lyrics</property>
-    <property name="modal">True</property>
+    <property name="destroy_with_parent">True</property>
     <property name="type_hint">dialog</property>
     <property name="deletable">False</property>
     <property name="transient_for">eyed3</property>
     <property name="filter">txtfiles</property>
     <signal name="file-activated" handler="on_loadlyrics_file_activated" swapped="no"/>
-    <child>
+    <child type="titlebar">
       <placeholder/>
     </child>
     <child internal-child="vbox">
@@ -767,6 +767,7 @@ Only necessary credit is that if the program is changed the respective creators 
           <object class="GtkComboBoxText">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="halign">end</property>
             <property name="margin_left">500</property>
             <property name="margin_right">6</property>
             <property name="active">0</property>
@@ -776,7 +777,7 @@ Only necessary credit is that if the program is changed the respective creators 
           </object>
           <packing>
             <property name="expand">False</property>
-            <property name="fill">True</property>
+            <property name="fill">False</property>
             <property name="position">2</property>
           </packing>
         </child>

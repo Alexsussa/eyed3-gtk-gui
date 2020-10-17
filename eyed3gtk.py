@@ -7,13 +7,15 @@ gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
 import os
 import sys
+import locale
 import gettext
 from eyed3 import id3
-import eyed3
 
 appname = 'eyed3'
-wami = os.path.abspath(os.path.realpath(__file__))
-dirname = os.path.join(wami, 'mo')
+dirname = os.path.join(os.path.realpath('locale'))
+
+locale.bindtextdomain(appname, dirname)
+locale.textdomain(appname)
 
 gettext.bindtextdomain(appname, dirname)
 gettext.textdomain(appname)
@@ -68,16 +70,24 @@ class EyedGtk(Gtk.Window):
         cover = self.txtcover.get_text()
         audio = str(self.txtaudio.get_text())
 
-        mp3 = eyed3.load(audio)
+        """mp3 = eyed3.load(audio)
         mp3.tag.title = title
         mp3.tag.artist = artist
         mp3.tag.album = album
         mp3.tag.album_artist = albumartist
         mp3.tag.genre = genre
         mp3.tag.track_num = tracknum
-        mp3.tag.save()
+        mp3.tag.save()"""
 
-        os.system(f'eyeD3 -Y "{year}" "{audio}"')
+        os.system(f'eyeD3 -t "{title}" -a "{artist}" -A "{album}" -b "{albumartist}" -G "{genre}" -n "{tracknum}" -Y "{year}" "{audio}"')
+
+        """os.system(f'eyeD3 -a "{artist}" "{audio}"')
+        os.system(f'eyeD3 -A "{album}" "{audio}"')
+        os.system(f'eyeD3 -b "{albumartist}" "{audio}"')
+        os.system(f'eyeD3 -G "{genre}" "{audio}"')
+        os.system(f'eyeD3 -n "{tracknum}" "{audio}"')
+        os.system(f'eyeD3 -Y "{year}" "{audio}"')"""
+
         os.system(f'eyeD3 --add-image "{cover}":FRONT_COVER "{audio}"')
         os.system(f'eyeD3 --add-lyrics "{lyrics}" "{audio}"')
 
