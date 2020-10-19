@@ -10,10 +10,10 @@ from tkinter import *
 import os
 import sys
 import ttips
-import subprocess
 import gettext
 import eyed3
 from eyed3 import id3
+from time import sleep
 
 # loads translations
 if sys.platform.startswith('win'):
@@ -27,6 +27,14 @@ dirname = os.path.join('locale')
 gettext.bindtextdomain(appname, dirname)
 gettext.textdomain(appname)
 _ = gettext.gettext
+
+pid = os.getpid()
+pidfile = os.path.expanduser('~/AppData/Local/Temp/eyed3.tmp')
+if not os.path.exists(pidfile):
+    os.system(f'Dir > {pidfile}')
+    os.system(f'echo {pid} >> {pidfile}')
+else:
+    sys.exit(-1)
 
 
 class EyedWin:
@@ -153,34 +161,38 @@ class EyedWin:
         audio = self.txtload_audio.get()
 
         mp3 = eyed3.load(audio)
+        mp3.initTag(version=(2, 4, 0))
         mp3.tag.title = title
         mp3.tag.artist = artist
         mp3.tag.album = album
         mp3.tag.album_artist = albumartist
         mp3.tag.genre = genre
         mp3.tag.track_num = tracknum
-        #mp3.tag.release_date = year
+        mp3.tag.recording_date = year
+        mp3.tag.release_date = year
+        mp3.tag.original_release_date = year
+        if lyrics == '':
+            pass
+        else:
+            mp3.tag.lyrics.set(open(lyrics).read())
+        if cover == '':
+            pass
+        else:
+            imageData = open(cover, 'rb').read()
+            mp3.tag.images.set(3, imageData, 'image/jpg')
         mp3.tag.save()
-
-        subprocess.Popen(f'eyeD3 -Y "{year}" "{audio}"', shell=True)
-        subprocess.Popen(f'eyeD3 --add-lyrics "{lyrics}" "{audio}"', shell=True)
-        subprocess.Popen(f'eyeD3 --add-image "{cover}":FRONT_COVER "{audio}"', shell=True)
-
-        """os.system(f'eyeD3 -t "{title}" "{audio}"')
-        os.system(f'eyeD3 -a "{artist}" "{audio}"')
-        os.system(f'eyeD3 -A "{album}" "{audio}"')
-        os.system(f'eyeD3 -b "{albumartist}" "{audio}"')
-        os.system(f'eyeD3 -G "{genre}" "{audio}"')
-        os.system(f'eyeD3 -n "{tracknum}" "{audio}"')"""
-
+        sleep(0.2)
         self.btnClearFields()
 
-        popup = showinfo(title='Status', message=_('All audio tags are saved.'), detail=_('Reaload the audio file to make sure the new tags were set.'))
+        showinfo(title='Status', message=_('All audio tags are saved.'), detail=_('Reaload the audio file to make sure the new tags were set.'))
 
     # audio file chooser
     def btnLoadAudio(self):
-        audio = askopenfilename(title=_('Open an audio file'), initialdir='~/', filetypes={'audio .mp3'})
-        subprocess.Popen((f'eyeD3 "{audio}" --to-v2.4'), shell=True)
+        audio = askopenfilename(title=_('Open an audio file'), initialdir='~/Music', filetypes={'audio .mp3'})
+        mp3 = eyed3.load(audio).tag
+        mp3.parse(audio, [2, 4, 0])
+        mp3.save(audio)
+        sleep(0.2)
         self.btnClearFields()
         self.txtload_audio.insert(INSERT, audio)
         self.displayinfo()
@@ -190,17 +202,17 @@ class EyedWin:
         lyrics = askopenfilename(title=_('Open a text file with lyrics'), initialdir='~/', filetypes={'text .txt'})
         if self.txtlyrics.get() == '':
             self.txtlyrics.insert(INSERT, lyrics)
-            self.txtlyrics.insert(1, '\\')
+            #self.txtlyrics.insert(1, '\\')
         else:
             self.txtlyrics.delete(0, END)
             self.txtlyrics.insert(INSERT, lyrics)
 
     # cover file chooser and buttons
     def btnLoadCover(self):
-        cover = askopenfilename(title=_('Choose an image file as cover'), initialdir='~/', filetypes={('images', ('.jpg', '.jpeg', '.png', '.gif'))})
+        cover = askopenfilename(title=_('Choose an image file as cover'), initialdir='~/Pictures', filetypes={('images', ('.jpg', '.jpeg', '.png'))})
         if self.txtcover.get() == '':
             self.txtcover.insert(INSERT, cover)
-            self.txtcover.insert(1, '\\')
+            #self.txtcover.insert(1, '\\')
         else:
             self.txtcover.delete(0, END)
             self.txtcover.insert(INSERT, cover)
@@ -232,17 +244,25 @@ class EyedWin:
         else:
             self.txttrack_num.insert(INSERT, str(tag.track_num[2]))
 
-        if str(tag.release_date):
-            self.txtyear.insert(INSERT, str(tag.release_date).replace('None', '0'))
+        self.txtyear.insert(INSERT, str(tag.recording_date).replace('None', ''))
+
+        """if tag.recording_date == None and tag.release_date == None and tag.original_release_date == None:
+            self.txtyear.insert(INSERT, '')
+        elif tag.release_date == None and tag.original_release_date == None:
+            self.txtyear.insert(INSERT, tag.recording_date)
+        elif tag.recording_date == None and tag.original_release_date == None:
+            self.txtyear.insert(INSERT, tag.release_date)
+        elif tag.recording_date == None and tag.release_date == None:
+            self.txtyear.insert(INSERT, tag.original_release_date)
         else:
-            self.txtyear.insert(INSERT, str(tag.release_date[:]))
+            pass"""
 
     def btnRemoveAllTags(self):
         audio = self.txtload_audio.get()
-        mp3 = eyed3.load(audio)
-        subprocess.Popen(f'eyeD3 "{audio}" --remove-all', shell=True)
-        subprocess.Popen(f'eyeD3 "{audio}" --to-v2.4', shell=True)
-        mp3.tag.remove(filename=audio)
+        id3.tag.Tag.remove(audio)
+        mp3 = eyed3.id3.Tag()
+        mp3.parse(audio, [2, 4, 0])
+        mp3.save(audio)
         self.txttitle.delete(0, END)
         self.txtartist.delete(0, END)
         self.txtalbum.delete(0, END)
@@ -262,3 +282,5 @@ window.title('eyeD3')
 window.resizable(False, False)
 window.geometry('800x550')
 window.mainloop()
+if window.destroy or window.quit:
+    os.unlink(pidfile)
