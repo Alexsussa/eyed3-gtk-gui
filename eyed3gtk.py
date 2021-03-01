@@ -79,7 +79,7 @@ class EyedGtk(Gtk.Window):
         mp3.tag.track_num = tracknum
         mp3.tag.save()"""
 
-        os.system(f'eyeD3 -t "{title}" -a "{artist}" -A "{album}" -b "{albumartist}" -G "{genre}" -n "{tracknum}" -Y "{year}" "{audio}"')
+        os.system(f'eyeD3 -t "{title}" -a "{artist}" -A "{album}" -b "{albumartist}" -G "{genre}" -n "{tracknum}" -Y "{year}" --release-date "{year}" --recording-date "{year}" "{audio}"')
 
         """os.system(f'eyeD3 -a "{artist}" "{audio}"')
         os.system(f'eyeD3 -A "{album}" "{audio}"')

@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- encoding:utf-8 -*-
 
-__version__ = 0.1
+__version__ = 0.2
 
 from tkinter.ttk import *
 from tkinter.messagebox import *
@@ -28,13 +28,13 @@ gettext.bindtextdomain(appname, dirname)
 gettext.textdomain(appname)
 _ = gettext.gettext
 
-pid = os.getpid()
+"""pid = os.getpid()
 pidfile = os.path.expanduser('~/AppData/Local/Temp/eyed3.tmp')
 if not os.path.exists(pidfile):
     os.system(f'Dir > {pidfile}')
     os.system(f'echo {pid} >> {pidfile}')
 else:
-    sys.exit(-1)
+    sys.exit(-1)"""
 
 
 class EyedWin:
@@ -57,30 +57,39 @@ class EyedWin:
         c5 = Frame(master)
         c5.pack()
 
+        # Menubar
+
+        menubar = Menu(window, tearoff=0, bd=0, bg='#d9d9d9')
+        about = Menu(menubar, tearoff=0)
+        menubar.add_cascade(label=_('Help'), menu=about)
+        about.add_command(label=_('About'))
+
+        window.config(menu=menubar)
+
         # preparing interface
         self.lbtitle = Label(c1, text=_('Title'))
         self.lbtitle.pack(side=LEFT, padx=5)
-        self.txttitle = Entry(c1, width=40)
+        self.txttitle = Entry(c1, width=40, bg='white', fg='black')
         self.txttitle.pack(side=LEFT)
 
         self.lbartist = Label(c1, text=_('Artist'))
         self.lbartist.pack(side=LEFT, padx=5)
-        self.txtartist = Entry(c1, width=40)
+        self.txtartist = Entry(c1, width=40, bg='white', fg='black')
         self.txtartist.pack(side=LEFT)
 
         self.lbtrack_num = Label(c1, text=_('Track Number'))
         self.lbtrack_num.pack(side=LEFT, padx=5)
-        self.txttrack_num = Entry(c1, width=4)
+        self.txttrack_num = Entry(c1, width=4, bg='white', fg='black')
         self.txttrack_num.pack(side=LEFT)
 
         self.lbalbum = Label(c2, text=_('Album'))
         self.lbalbum.pack(side=LEFT, padx=5)
-        self.txtalbum = Entry(c2, width=36)
+        self.txtalbum = Entry(c2, width=36, bg='white', fg='black')
         self.txtalbum.pack(side=LEFT)
 
         self.lbalbum_artist = Label(c2, text=_('Album Artist'))
         self.lbalbum_artist.pack(side=LEFT, padx=5)
-        self.txtalbum_artist = Entry(c2, width=36)
+        self.txtalbum_artist = Entry(c2, width=36, bg='white', fg='black')
         self.txtalbum_artist.pack(side=LEFT)
 
         self.btnremove_all_tags = Button(c2, text=_('Remove All Tags'), width=15, command=self.btnRemoveAllTags)
@@ -89,29 +98,29 @@ class EyedWin:
 
         self.lbgenre = Label(c3, text=_('Genre'))
         self.lbgenre.pack(side=LEFT, padx=5)
-        self.txtgenre = Entry(c3, width=15)
+        self.txtgenre = Entry(c3, width=15, bg='white', fg='black')
         self.txtgenre.pack(side=LEFT)
 
         self.lbyear = Label(c3, text=_('Year'))
         self.lbyear.pack(side=LEFT, padx=5)
-        self.txtyear = Entry(c3, width=5)
+        self.txtyear = Entry(c3, width=5, bg='white', fg='black')
         self.txtyear.pack(side=LEFT)
 
-        self.txtlyrics = Entry(c3, width=31)
+        self.txtlyrics = Entry(c3, width=31, bg='white', fg='black')
         self.txtlyrics.pack(side=LEFT, padx=5)
         ttips.Create(self.txtlyrics, text=_('Select a txt file with lyrics by clicking the button'))
         self.btnlyrics = Button(c3, text=_('Lyrics'), command=self.btnLoadLyrics)
         self.btnlyrics.pack(side=LEFT)
         ttips.Create(self.btnlyrics, text=_('Select a txt file with lyrics'))
 
-        self.txtcover = Entry(c3, width=31)
+        self.txtcover = Entry(c3, width=31, bg='white', fg='black')
         self.txtcover.pack(side=LEFT, padx=5)
         ttips.Create(self.txtcover, text=_('Select an image file as front cover by clicking the button'))
         self.btncover = Button(c3, text=_('Cover'), command=self.btnLoadCover)
         self.btncover.pack(side=LEFT)
         ttips.Create(self.btncover, text=_('Select an image file as front cover'))
 
-        self.txtload_audio = Entry(c4, width=53)
+        self.txtload_audio = Entry(c4, width=53, bg='white', fg='black')
         self.txtload_audio.pack(side=LEFT, padx=5)
         ttips.Create(self.txtload_audio, text=_('Select an audio file by clicking the button'))
         self.btnload_audio = Button(c4, text=_('Load Audio'), width=15, command=self.btnLoadAudio)
@@ -246,17 +255,6 @@ class EyedWin:
 
         self.txtyear.insert(INSERT, str(tag.recording_date).replace('None', ''))
 
-        """if tag.recording_date == None and tag.release_date == None and tag.original_release_date == None:
-            self.txtyear.insert(INSERT, '')
-        elif tag.release_date == None and tag.original_release_date == None:
-            self.txtyear.insert(INSERT, tag.recording_date)
-        elif tag.recording_date == None and tag.original_release_date == None:
-            self.txtyear.insert(INSERT, tag.release_date)
-        elif tag.recording_date == None and tag.release_date == None:
-            self.txtyear.insert(INSERT, tag.original_release_date)
-        else:
-            pass"""
-
     def btnRemoveAllTags(self):
         audio = self.txtload_audio.get()
         id3.tag.Tag.remove(audio)
@@ -279,8 +277,8 @@ EyedWin(window)
 icon_win = PhotoImage(file='icons/eyed3.png')
 window.tk.call('wm', 'iconphoto', window._w, icon_win)
 window.title('eyeD3')
-window.resizable(False, False)
-window.geometry('800x550')
+#window.resizable(False, False)
+#window.geometry('800x550')
 window.mainloop()
-if window.destroy or window.quit:
-    os.unlink(pidfile)
+"""if window.destroy or window.quit:
+    os.unlink(pidfile)"""
