@@ -7,13 +7,16 @@ from tkinter.ttk import *
 from tkinter.messagebox import *
 from tkinter.filedialog import *
 from tkinter import *
+from eyed3 import id3
+from time import sleep
+from threading import Thread
+from about import About
 import os
 import sys
 import ttips
 import gettext
 import eyed3
-from eyed3 import id3
-from time import sleep
+import webbrowser
 
 # loads translations
 if sys.platform.startswith('win'):
@@ -39,16 +42,18 @@ else:
 
 class EyedWin:
     def __init__(self, master=None):
+        Thread(target=self.user_check_updates, daemon=True).start()
+
         # preparing containers
         c1 = Frame(master)
-        c1['pady'] = 30
+        c1['pady'] = 20
         c1.pack()
 
         c2 = Frame(master)
         c2.pack()
 
         c3 = Frame(master)
-        c3['pady'] = 25
+        c3['pady'] = 20
         c3.pack()
 
         c4 = Frame(master)
@@ -57,12 +62,29 @@ class EyedWin:
         c5 = Frame(master)
         c5.pack()
 
-        # Menubar
+        c6 = Frame(master)
+        c6.pack()
 
+        c7 = Frame(master)
+        c7.pack()
+
+        # Menubar
         menubar = Menu(window, tearoff=0, bd=0, bg='#d9d9d9')
-        about = Menu(menubar, tearoff=0)
-        menubar.add_cascade(label=_('Help'), menu=about)
-        about.add_command(label=_('About'))
+        file = Menu(menubar, tearoff=0, bd=0)
+        menubar.add_cascade(label=_('File'), menu=file)
+        file.add_command(label=_('Load audio file...'), accelerator='Ctrl+O', command=lambda: self.btnLoadAudio())
+        file.add_command(label=_('Save all tags'), accelerator='Ctrl+S', command=lambda: self.btnSaveTags())
+        file.add_separator()
+        file.add_command(label=_('Exit'), accelerator='Ctrl+Q', command=lambda: window.destroy())
+
+        help = Menu(menubar, tearoff=0, bd=0)
+        menubar.add_cascade(label=_('Help'), menu=help)
+        help.add_command(label='GitHub', accelerator='Ctrl+G', command=lambda: window.bind('<Button-1>', webbrowser.open('https://github.com/Alexsussa/eyed3-gtk-gui')))
+        help.add_command(label=_('License'), accelerator='Ctrl+I', command=lambda: window.bind('<Button-1>', webbrowser.open('https://github.com/Alexsussa/eyed3-gtk-gui/blob/master/LICENSE')))
+        help.add_command(label=_('Documentation'), accelerator='Ctrl+D', command=lambda: window.bind('<Button-1>', webbrowser.open('https://github.com/Alexsussa/eyed3-gtk-gui#eyed3-gtk-gui')))
+        help.add_command(label=_('Search for new updates...'), accelerator='Ctrl+N', command=lambda: self.check_updates())
+        help.add_separator()
+        help.add_command(label=_('About'), accelerator='Ctrl+H', command=lambda: About.about(self, window=window))
 
         window.config(menu=menubar)
 
@@ -120,32 +142,61 @@ class EyedWin:
         self.btncover.pack(side=LEFT)
         ttips.Create(self.btncover, text=_('Select an image file as front cover'))
 
-        self.txtload_audio = Entry(c4, width=53, bg='white', fg='black')
-        self.txtload_audio.pack(side=LEFT, padx=5)
+        self.lbcommposer = Label(c4, text=_('Composer(s)'))
+        self.lbcommposer.pack(side=LEFT)
+        self.txtcomposer = Entry(c4, width=102, bg='white', fg='black')
+        self.txtcomposer.pack(side=LEFT, padx=5)
+
+        self.lbcomment = Label(c5, text=_('Comments'))
+        self.lbcomment.pack(side=LEFT, padx=5)
+        self.txtcomment = Text(c5, width=105, height=5, bg='white', fg='black')
+        self.txtcomment.pack(side=LEFT, pady=15)
+
+        self.txtload_audio = Entry(c6, width=53, bg='white', fg='black')
+        self.txtload_audio.pack(side=LEFT, padx=5, pady=2)
         ttips.Create(self.txtload_audio, text=_('Select an audio file by clicking the button'))
-        self.btnload_audio = Button(c4, text=_('Load Audio'), width=15, command=self.btnLoadAudio)
+        self.btnload_audio = Button(c6, text=_('Load Audio'), width=15, command=self.btnLoadAudio)
         self.btnload_audio.pack(side=LEFT)
-        ttips.Create(self.btnload_audio, text=_('Select an audio file'))
+        ttips.Create(self.btnload_audio, text=_('Select an audio file, Ctrl+O'))
 
-        self.btnclear_fields = Button(c4, text=_('Clear Fields'), width=15, command=self.btnClearFields)
+        self.btnclear_fields = Button(c6, text=_('Clear Fields'), width=15, command=self.btnClearFields)
         self.btnclear_fields.pack(side=LEFT, padx=5)
-        ttips.Create(self.btnclear_fields, text=_('Clear all fields'))
+        ttips.Create(self.btnclear_fields, text=_('Clear all fields, Ctrl+L'))
 
-        self.btnsave_tags = Button(c4, text=_('Save Tags'), width=16, command=self.btnSaveTags)
+        self.btnsave_tags = Button(c6, text=_('Save Tags'), width=16, command=self.btnSaveTags)
         self.btnsave_tags.pack(side=LEFT)
-        ttips.Create(self.btnsave_tags, text=_('Save all tags into the audio file'))
+        ttips.Create(self.btnsave_tags, text=_('Save all tags into the audio file, Ctrl+S'))
 
         self.bgimg = PhotoImage(file='icons/bg.png')
 
-        self.bg = Label(c5, image=self.bgimg)
+        self.bg = Label(c7, image=self.bgimg)
         self.bg.pack(pady=30)
-
         self.bg.image = self.bgimg
 
         self.mouseMenu = Menu(window, tearoff=0)
         self.mouseMenu.add_command(label=_('Cut'))
         self.mouseMenu.add_command(label=_('Copy'))
         self.mouseMenu.add_command(label=_('Paste'))
+
+        # Binds
+        window.bind('<Control-O>', lambda e: self.btnLoadAudio())
+        window.bind('<Control-o>', lambda e: self.btnLoadAudio())
+        window.bind('<Control-S>', lambda e: self.btnSaveTags())
+        window.bind('<Control-s>', lambda e: self.btnSaveTags())
+        window.bind('<Control-Q>', lambda e: window.destroy())
+        window.bind('<Control-q>', lambda e: window.destroy())
+        window.bind('<Control-G>', lambda e: webbrowser.open('https://github.com/Alexsussa/eyed3-gtk-gui'))
+        window.bind('<Control-g>', lambda e: webbrowser.open('https://github.com/Alexsussa/eyed3-gtk-gui'))
+        window.bind('<Control-I>', lambda e: webbrowser.open('https://github.com/Alexsussa/eyed3-gtk-gui/blob/master/LICENSE'))
+        window.bind('<Control-i>', lambda e: webbrowser.open('https://github.com/Alexsussa/eyed3-gtk-gui/blob/master/LICENSE'))
+        window.bind('<Control-D>', lambda e: webbrowser.open('https://github.com/Alexsussa/eyed3-gtk-gui#eyed3-gtk-gui'))
+        window.bind('<Control-d>', lambda e: webbrowser.open('https://github.com/Alexsussa/eyed3-gtk-gui#eyed3-gtk-gui'))
+        window.bind('<Control-N>', lambda e: self.check_updates())
+        window.bind('<Control-n>', lambda e: self.check_updates())
+        window.bind('<Control-H>', lambda e: About.about(self, window=window))
+        window.bind('<Control-h>', lambda e: About.about(self, window=window))
+        window.bind('<Control-L>', lambda e: self.btnClearFields())
+        window.bind('<Control-l>', lambda e: self.btnClearFields())
         window.bind('<Button-3><ButtonRelease-3>', self.mouse)
 
     # mouse menu
@@ -168,32 +219,37 @@ class EyedWin:
         lyrics = self.txtlyrics.get()
         cover = self.txtcover.get()
         audio = self.txtload_audio.get()
-
-        mp3 = eyed3.load(audio)
-        mp3.initTag(version=(2, 4, 0))
-        mp3.tag.title = title
-        mp3.tag.artist = artist
-        mp3.tag.album = album
-        mp3.tag.album_artist = albumartist
-        mp3.tag.genre = genre
-        mp3.tag.track_num = tracknum
-        mp3.tag.recording_date = year
-        mp3.tag.release_date = year
-        mp3.tag.original_release_date = year
-        if lyrics == '':
-            pass
+        composer = self.txtcomposer.get()
+        comment = str(self.txtcomment.get(1.0, END))
+        if audio == '':
+            showerror(title=_('Fail'), message=_('You need to load an audio file to save tags.'))
         else:
-            mp3.tag.lyrics.set(open(lyrics).read())
-        if cover == '':
-            pass
-        else:
-            imageData = open(cover, 'rb').read()
-            mp3.tag.images.set(3, imageData, 'image/jpg')
-        mp3.tag.save()
-        sleep(0.2)
-        self.btnClearFields()
-
-        showinfo(title='Status', message=_('All audio tags are saved.'), detail=_('Reaload the audio file to make sure the new tags were set.'))
+            mp3 = eyed3.load(audio)
+            mp3.initTag(version=(2, 4, 0))
+            mp3.tag.title = title
+            mp3.tag.artist = artist
+            mp3.tag.album = album
+            mp3.tag.album_artist = albumartist
+            mp3.tag.genre = genre
+            mp3.tag.track_num = tracknum
+            mp3.tag.recording_date = year
+            mp3.tag.release_date = year
+            mp3.tag.original_release_date = year
+            mp3.tag.composer = composer
+            mp3.tag.comments.set(comment.replace('\n', ' '))
+            if lyrics == '':
+                pass
+            if lyrics != '':
+                mp3.tag.lyrics.set(open(lyrics).read())
+            if cover == '':
+                showinfo(title=_('Error'), message=_("Cover file wasn't selected."))
+            if cover != '':
+                imageData = open(cover, 'rb').read()
+                mp3.tag.images.set(3, imageData, 'image/jpg')
+                mp3.tag.save()
+                sleep(0.2)
+                self.btnClearFields()
+                showinfo(title='Status', message=_('All audio tags are saved.'), detail=_('Reaload the audio file to make sure the new tags were set.'))
 
     # audio file chooser
     def btnLoadAudio(self):
@@ -238,6 +294,8 @@ class EyedWin:
         self.txtload_audio.delete(0, END)
         self.txtlyrics.delete(0, END)
         self.txtcover.delete(0, END)
+        self.txtcomposer.delete(0, END)
+        self.txtcomment.delete(1.0, END)
 
     # display existing tags when load audio
     def displayinfo(self):
@@ -248,28 +306,57 @@ class EyedWin:
         self.txtalbum.insert(INSERT, str(tag.album))
         self.txtalbum_artist.insert(INSERT, str(tag.album_artist))
         self.txtgenre.insert(INSERT, str(tag.genre))
+        self.txtcomposer.insert(INSERT, str(tag.composer))
         if str(tag.track_num):
             self.txttrack_num.insert(INSERT, str(tag.track_num[0]).replace('None', '0'))
         else:
             self.txttrack_num.insert(INSERT, str(tag.track_num[2]))
 
         self.txtyear.insert(INSERT, str(tag.recording_date).replace('None', ''))
+        self.txtcomment.insert(INSERT, str(tag.comments[0].text))
 
     def btnRemoveAllTags(self):
         audio = self.txtload_audio.get()
-        id3.tag.Tag.remove(audio)
-        mp3 = eyed3.id3.Tag()
-        mp3.parse(audio, [2, 4, 0])
-        mp3.save(audio)
-        self.txttitle.delete(0, END)
-        self.txtartist.delete(0, END)
-        self.txtalbum.delete(0, END)
-        self.txtalbum_artist.delete(0, END)
-        self.txtgenre.delete(0, END)
-        self.txtyear.delete(0, END)
-        self.txttrack_num.delete(0, END)
-        self.txtlyrics.delete(0, END)
-        self.txtcover.delete(0, END)
+        if audio == '':
+            showerror(title=_('Fail'), message=_('You need to load an audio file to remove tags.'))
+        else:
+            id3.tag.Tag.remove(audio)
+            mp3 = eyed3.id3.Tag()
+            mp3.parse(audio, [2, 4, 0])
+            mp3.save(audio)
+            self.txttitle.delete(0, END)
+            self.txtartist.delete(0, END)
+            self.txtalbum.delete(0, END)
+            self.txtalbum_artist.delete(0, END)
+            self.txtgenre.delete(0, END)
+            self.txtyear.delete(0, END)
+            self.txttrack_num.delete(0, END)
+            self.txtlyrics.delete(0, END)
+            self.txtcover.delete(0, END)
+            self.txtcomposer.delete(0, END)
+            self.txtcomment.delete(1.0, END)
+
+    def check_updates(self):
+        from urllib.request import urlopen
+        actual_version = __version__
+        new_version = urlopen('https://raw.githubusercontent.com/Alexsussa/eyed3-gtk-gui/master/version').read()
+        if float(new_version) > float(actual_version):
+            showinfo(title=_('New update'), message=_("There's a new software version available to download."))
+            webbrowser.open('https://github.com/Alexsussa/eyed3-gtk-gui/releases')
+        if float(new_version) == float(actual_version):
+            showinfo(title=_('Updated'), message=_('Software has the last version installed.'))
+        else:
+            pass
+
+    def user_check_updates(self):
+        from urllib.request import urlopen
+        actual_version = __version__
+        new_version = urlopen('https://raw.githubusercontent.com/Alexsussa/eyed3-gtk-gui/master/version').read()
+        if float(new_version) > float(actual_version):
+            showinfo(title=_('New update'), message=_("There's a new software version available to download."))
+            Thread(target=webbrowser.open('https://github.com/Alexsussa/eyed3-gtk-gui/releases')).start()
+        else:
+            pass
 
 
 window = Tk()
@@ -277,7 +364,7 @@ EyedWin(window)
 icon_win = PhotoImage(file='icons/eyed3.png')
 window.tk.call('wm', 'iconphoto', window._w, icon_win)
 window.title('eyeD3')
-#window.resizable(False, False)
+window.resizable(False, False)
 #window.geometry('800x550')
 window.mainloop()
 """if window.destroy or window.quit:
