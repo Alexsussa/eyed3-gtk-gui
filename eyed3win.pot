@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2020-10-02 13:25-0300\n"
+"POT-Creation-Date: 2021-03-02 12:43-0300\n"
 "PO-Revision-Date: 2020-09-10 17:29-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -10,129 +10,201 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.1\n"
+"X-Generator: Poedit 2.3\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-KeywordsList: _\n"
 "X-Poedit-SearchPath-0: eyed3win.py\n"
 "X-Poedit-SearchPath-1: locale\n"
 
-#: eyed3win.py:57
-msgid "Title"
+#: eyed3win.py:74
+msgid "File"
 msgstr ""
 
-#: eyed3win.py:62
-msgid "Artist"
+#: eyed3win.py:75
+msgid "Load audio file..."
 msgstr ""
 
-#: eyed3win.py:67
-msgid "Track Number"
+#: eyed3win.py:76
+msgid "Save all tags"
 msgstr ""
 
-#: eyed3win.py:72
-msgid "Album"
+#: eyed3win.py:78
+msgid "Exit"
 msgstr ""
 
-#: eyed3win.py:77
-msgid "Album Artist"
+#: eyed3win.py:81
+msgid "Help"
 msgstr ""
 
-#: eyed3win.py:82
-msgid "Remove All Tags"
+#: eyed3win.py:83
+msgid "License"
 msgstr ""
 
 #: eyed3win.py:84
-msgid "Remove completly all tags from audio"
+msgid "Documentation"
 msgstr ""
 
-#: eyed3win.py:86
-msgid "Genre"
+#: eyed3win.py:85
+msgid "Search for new updates..."
 msgstr ""
 
-#: eyed3win.py:91
-msgid "Year"
+#: eyed3win.py:87
+msgid "About"
 msgstr ""
 
-#: eyed3win.py:98
-msgid "Select a txt file with lyrics by clicking the button"
+#: eyed3win.py:92
+msgid "Title"
 msgstr ""
 
-#: eyed3win.py:99
-msgid "Lyrics"
+#: eyed3win.py:97
+msgid "Artist"
 msgstr ""
 
-#: eyed3win.py:101
-msgid "Select a txt file with lyrics"
+#: eyed3win.py:102
+msgid "Track Number"
 msgstr ""
 
-#: eyed3win.py:105
-msgid "Select an image file as front cover by clicking the button"
-msgstr ""
-
-#: eyed3win.py:106
-msgid "Cover"
-msgstr ""
-
-#: eyed3win.py:108
-msgid "Select an image file as front cover"
+#: eyed3win.py:107
+msgid "Album"
 msgstr ""
 
 #: eyed3win.py:112
-msgid "Select an audio file by clicking the button"
-msgstr ""
-
-#: eyed3win.py:113
-msgid "Load Audio"
-msgstr ""
-
-#: eyed3win.py:115
-msgid "Select an audio file"
+msgid "Album Artist"
 msgstr ""
 
 #: eyed3win.py:117
-msgid "Clear Fields"
+msgid "Remove All Tags"
 msgstr ""
 
 #: eyed3win.py:119
-msgid "Clear all fields"
+msgid "Remove completly all tags from audio"
 msgstr ""
 
 #: eyed3win.py:121
-msgid "Save Tags"
+msgid "Genre"
 msgstr ""
 
-#: eyed3win.py:123
-msgid "Save all tags into the audio file"
+#: eyed3win.py:126
+msgid "Year"
 msgstr ""
 
 #: eyed3win.py:133
-msgid "Cut"
+msgid "Select a txt file with lyrics by clicking the button"
 msgstr ""
 
 #: eyed3win.py:134
+msgid "Lyrics"
+msgstr ""
+
+#: eyed3win.py:136
+msgid "Select a txt file with lyrics"
+msgstr ""
+
+#: eyed3win.py:140
+msgid "Select an image file as front cover by clicking the button"
+msgstr ""
+
+#: eyed3win.py:141
+msgid "Cover"
+msgstr ""
+
+#: eyed3win.py:143
+msgid "Select an image file as front cover"
+msgstr ""
+
+#: eyed3win.py:145
+msgid "Composer(s)"
+msgstr ""
+
+#: eyed3win.py:150
+msgid "Comments"
+msgstr ""
+
+#: eyed3win.py:157
+msgid "Select an audio file by clicking the button"
+msgstr ""
+
+#: eyed3win.py:158
+msgid "Load Audio"
+msgstr ""
+
+#: eyed3win.py:160
+msgid "Select an audio file, Ctrl+O"
+msgstr ""
+
+#: eyed3win.py:162
+msgid "Clear Fields"
+msgstr ""
+
+#: eyed3win.py:164
+msgid "Clear all fields, Ctrl+L"
+msgstr ""
+
+#: eyed3win.py:166
+msgid "Save Tags"
+msgstr ""
+
+#: eyed3win.py:168
+msgid "Save all tags into the audio file, Ctrl+S"
+msgstr ""
+
+#: eyed3win.py:177 eyed3win.py:205
+msgid "Cut"
+msgstr ""
+
+#: eyed3win.py:178 eyed3win.py:206
 msgid "Copy"
 msgstr ""
 
-#: eyed3win.py:135
+#: eyed3win.py:179 eyed3win.py:207
 msgid "Paste"
 msgstr ""
 
-#: eyed3win.py:182
+#: eyed3win.py:225 eyed3win.py:322
+msgid "Fail"
+msgstr ""
+
+#: eyed3win.py:225
+msgid "You need to load an audio file to save tags."
+msgstr ""
+
+#: eyed3win.py:253
 msgid "All audio tags are saved."
 msgstr ""
 
-#: eyed3win.py:182
+#: eyed3win.py:253
 msgid "Reaload the audio file to make sure the new tags were set."
 msgstr ""
 
-#: eyed3win.py:186
+#: eyed3win.py:257
 msgid "Open an audio file"
 msgstr ""
 
-#: eyed3win.py:194
+#: eyed3win.py:268
 msgid "Open a text file with lyrics"
 msgstr ""
 
-#: eyed3win.py:204
+#: eyed3win.py:278
 msgid "Choose an image file as cover"
+msgstr ""
+
+#: eyed3win.py:322
+msgid "You need to load an audio file to remove tags."
+msgstr ""
+
+#: eyed3win.py:345 eyed3win.py:357
+msgid "New update"
+msgstr ""
+
+#: eyed3win.py:345 eyed3win.py:357
+msgid "There's a new software version available to download."
+msgstr ""
+
+#: eyed3win.py:348
+msgid "Updated"
+msgstr ""
+
+#: eyed3win.py:348
+msgid "Software has the last version installed."
 msgstr ""
