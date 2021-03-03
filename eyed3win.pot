@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2021-03-02 12:43-0300\n"
+"POT-Creation-Date: 2021-03-02 20:59-0300\n"
 "PO-Revision-Date: 2020-09-10 17:29-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -161,7 +161,7 @@ msgstr ""
 msgid "Paste"
 msgstr ""
 
-#: eyed3win.py:225 eyed3win.py:322
+#: eyed3win.py:225 eyed3win.py:321
 msgid "Fail"
 msgstr ""
 
@@ -169,42 +169,50 @@ msgstr ""
 msgid "You need to load an audio file to save tags."
 msgstr ""
 
-#: eyed3win.py:253
+#: eyed3win.py:245
+msgid "Error"
+msgstr ""
+
+#: eyed3win.py:245
+msgid "Cover file wasn't selected."
+msgstr ""
+
+#: eyed3win.py:252
 msgid "All audio tags are saved."
 msgstr ""
 
-#: eyed3win.py:253
+#: eyed3win.py:252
 msgid "Reaload the audio file to make sure the new tags were set."
 msgstr ""
 
-#: eyed3win.py:257
+#: eyed3win.py:256
 msgid "Open an audio file"
 msgstr ""
 
-#: eyed3win.py:268
+#: eyed3win.py:267
 msgid "Open a text file with lyrics"
 msgstr ""
 
-#: eyed3win.py:278
+#: eyed3win.py:277
 msgid "Choose an image file as cover"
 msgstr ""
 
-#: eyed3win.py:322
+#: eyed3win.py:321
 msgid "You need to load an audio file to remove tags."
 msgstr ""
 
-#: eyed3win.py:345 eyed3win.py:357
+#: eyed3win.py:344 eyed3win.py:356
 msgid "New update"
 msgstr ""
 
-#: eyed3win.py:345 eyed3win.py:357
+#: eyed3win.py:344 eyed3win.py:356
 msgid "There's a new software version available to download."
 msgstr ""
 
-#: eyed3win.py:348
+#: eyed3win.py:347
 msgid "Updated"
 msgstr ""
 
-#: eyed3win.py:348
+#: eyed3win.py:347
 msgid "Software has the last version installed."
 msgstr ""
