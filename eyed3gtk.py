@@ -5,11 +5,15 @@ import gi
 
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
+from threading import Thread
 import os
 import sys
 import locale
 import gettext
+import webbrowser
 from eyed3 import id3
+
+__version__ = 0.2
 
 appname = 'eyed3'
 dirname = os.path.join(os.path.realpath('locale'))
@@ -42,18 +46,60 @@ class EyedGtk(Gtk.Window):
         self.txtaudio = builder.get_object('txtaudio')
         self.txtlyrics = builder.get_object('txtlyrics')
         self.txtcover = builder.get_object('txtcover')
+        self.txtComposer = builder.get_object('txtComposer')
+        self.txtComments = builder.get_object('txtComments')
+        self.buffComments = builder.get_object('buffComments')
         self.loadaudio = builder.get_object('loadaudio')
         self.loadlyrics = builder.get_object('loadlyrics')
         self.loadcover = builder.get_object('loadcover')
         self.loading = builder.get_object('spinner')
         self.aviso = builder.get_object('aviso')
         self.lbaviso = builder.get_object('lbaviso')
+        self.updates = builder.get_object('updates')
+        self.lbupdate = builder.get_object('lbupdates')
+        self.newupdate = builder.get_object('newupdate')
+        self.lbnewupdate = builder.get_object('lbnewupdate')
         self.about = builder.get_object('about')
+
+        self.check_updates()
 
         # this makes the about window's close button works
         self.about.connect('response', lambda d, r: d.hide())
 
+    # menu file >> submenu
+    def on_btnLoadAudio_activate(self, button):
+        self.on_btnloadaudio_clicked(button)
+
+    def on_btnSaveAllTags_activate(self, button):
+        self.on_btnsavetags_clicked(button)
+
+    def on_btnExit_activate(self, button):
+        Gtk.main_quit()
+        os.unlink(pidfile)
+
     # menu help >> about
+    def on_btnGitHub_activate(self, button):
+        webbrowser.open('https://github.com/Alexsussa/eyed3-gtk-gui')
+
+    def on_btnLicense_activate(self, button):
+        webbrowser.open('https://github.com/Alexsussa/eyed3-gtk-gui/blob/master/LICENSE')
+
+    def on_btnDoc_activate(self, button):
+        webbrowser.open('https://github.com/Alexsussa/eyed3-gtk-gui#eyed3-gtk-gui')
+
+    def on_btnCheckUpdates_activate(self, button):
+        from urllib.request import urlopen
+        actual_version = __version__
+        new_version = urlopen('https://raw.githubusercontent.com/Alexsussa/eyed3-gtk-gui/master/version').read()
+        if float(new_version) > float(actual_version):
+            self.updates.show()
+            self.lbupdate.set_text(_("There's a new software version available to download."))
+        if float(new_version) == float(actual_version):
+            self.newupdate.show()
+            self.lbnewupdate.set_text(_('Software has the last version installed.'))
+        else:
+            pass
+
     def on_btnaboutmenu_activate(self, button):
         self.about.show()
 
@@ -69,32 +115,30 @@ class EyedGtk(Gtk.Window):
         lyrics = self.txtlyrics.get_text()
         cover = self.txtcover.get_text()
         audio = str(self.txtaudio.get_text())
+        composer = str(self.txtComposer.get_text())
+        start = self.buffComments.get_start_iter()
+        end = self.buffComments.get_end_iter()
+        comments = str(self.buffComments.get_text(start, end, False))
+        if audio == '':
+            self.aviso.show()
+            self.lbaviso.set_text(_('You need to load an audio file to save tags.'))
+        else:
+            os.system(f'eyeD3 -t "{title}" -a "{artist}" -A "{album}" -b "{albumartist}" -G "{genre}" -n "{tracknum}" -Y "{year}" --release-date "{year}" --recording-date "{year}" --composer "{composer}" --comment "{comments}" "{audio}"')
 
-        """mp3 = eyed3.load(audio)
-        mp3.tag.title = title
-        mp3.tag.artist = artist
-        mp3.tag.album = album
-        mp3.tag.album_artist = albumartist
-        mp3.tag.genre = genre
-        mp3.tag.track_num = tracknum
-        mp3.tag.save()"""
+            if lyrics == '':
+                pass
+            if lyrics != '':
+                os.system(f'eyeD3 --add-lyrics "{lyrics}" "{audio}"')
+            if cover == '':
+                pass
+            if cover != '':
+                os.system(f'eyeD3 --add-image "{cover}":FRONT_COVER "{audio}"')
 
-        os.system(f'eyeD3 -t "{title}" -a "{artist}" -A "{album}" -b "{albumartist}" -G "{genre}" -n "{tracknum}" -Y "{year}" --release-date "{year}" --recording-date "{year}" "{audio}"')
-
-        """os.system(f'eyeD3 -a "{artist}" "{audio}"')
-        os.system(f'eyeD3 -A "{album}" "{audio}"')
-        os.system(f'eyeD3 -b "{albumartist}" "{audio}"')
-        os.system(f'eyeD3 -G "{genre}" "{audio}"')
-        os.system(f'eyeD3 -n "{tracknum}" "{audio}"')
-        os.system(f'eyeD3 -Y "{year}" "{audio}"')"""
-
-        os.system(f'eyeD3 --add-image "{cover}":FRONT_COVER "{audio}"')
-        os.system(f'eyeD3 --add-lyrics "{lyrics}" "{audio}"')
-
-        # reopen the last audio file to update fields with the new tags
-        self.on_btnclearfields_clicked(button=None)
-        self.on_loadaudio_file_activated(button=True)
-        self.aviso.show()
+            # reopen the last audio file to update fields with the new tags
+            self.on_btnclearfields_clicked(button=None)
+            self.on_loadaudio_file_activated(button=True)
+            self.aviso.show()
+            self.lbaviso.set_text(_('All audio tags are saved.'))
 
     # audio file chooser and buttons
     def on_btnloadaudio_clicked(self, button):
@@ -163,6 +207,8 @@ class EyedGtk(Gtk.Window):
         self.txtaudio.set_text(text='')
         self.txtlyrics.set_text(text='')
         self.txtcover.set_text(text='')
+        self.txtComposer.set_text(text='')
+        self.buffComments.set_text(text='')
 
     def displayinfo(self):
         tag = id3.Tag()
@@ -182,27 +228,51 @@ class EyedGtk(Gtk.Window):
         else:
             self.txtyear.set_text(str(tag.release_date[:]))
 
+        self.txtComposer.set_text(str(tag.composer))
+        self.buffComments.set_text(str(tag.comments[0].text))
+
     def on_btnremove_clicked(self, button):
         audio = self.txtaudio.get_text()
-        os.system(f'eyeD3 "{audio}" --remove-all')
-        os.system((f'eyeD3 "{audio}" --to-v2.4'))
-        self.txttitle.set_text(text='')
-        self.txtartist.set_text(text='')
-        self.txtalbum.set_text(text='')
-        self.txtalbumartist.set_text(text='')
-        self.txtgenre.set_text(text='')
-        self.txtyear.set_text(text='')
-        self.txttracknum.set_text(text='')
-        self.txtlyrics.set_text(text='')
-        self.txtcover.set_text(text='')
+        if audio == '':
+            self.aviso.show()
+            self.lbaviso.set_text(_('You need to load an audio file to remove tags.'))
+        else:
+            os.system(f'eyeD3 "{audio}" --remove-all')
+            os.system((f'eyeD3 "{audio}" --to-v2.4'))
+            self.txttitle.set_text(text='')
+            self.txtartist.set_text(text='')
+            self.txtalbum.set_text(text='')
+            self.txtalbumartist.set_text(text='')
+            self.txtgenre.set_text(text='')
+            self.txtyear.set_text(text='')
+            self.txttracknum.set_text(text='')
+            self.txtlyrics.set_text(text='')
+            self.txtcover.set_text(text='')
 
     def on_btnavisok_clicked(self, button):
         self.aviso.hide()
+
+    def on_btnUpdateOk_clicked(self, button):
+        self.updates.hide()
+        webbrowser.open('https://github.com/Alexsussa/eyed3-gtk-gui/releases')
+
+    def on_btnUpdateOkNew_clicked(self, button):
+        self.newupdate.hide()
 
     # just destroy main window
     def on_eyed3_destroy(self, window):
         Gtk.main_quit()
         os.unlink(pidfile)
+
+    def check_updates(self):
+        from urllib.request import urlopen
+        actual_version = __version__
+        new_version = urlopen('https://raw.githubusercontent.com/Alexsussa/eyed3-gtk-gui/master/version').read()
+        if float(new_version) > float(actual_version):
+            self.updates.show()
+            self.lbupdate.set_text(_("There's a new software version available to download."))
+        else:
+            pass
 
 
 builder = Gtk.Builder()
