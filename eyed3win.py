@@ -7,6 +7,7 @@ from tkinter.ttk import *
 from tkinter.messagebox import *
 from tkinter.filedialog import *
 from tkinter import *
+from TkinterDnD2 import *
 from eyed3 import id3
 from time import sleep
 from threading import Thread
@@ -130,6 +131,7 @@ class EyedWin:
 
         self.txtlyrics = Entry(c3, width=31, bg='white', fg='black')
         self.txtlyrics.pack(side=LEFT, padx=5)
+        self.txtlyrics.drop_target_register(DND_FILES)
         ttips.Create(self.txtlyrics, text=_('Select a txt file with lyrics by clicking the button'))
         self.btnlyrics = Button(c3, text=_('Lyrics'), command=self.btnLoadLyrics)
         self.btnlyrics.pack(side=LEFT)
@@ -137,6 +139,7 @@ class EyedWin:
 
         self.txtcover = Entry(c3, width=31, bg='white', fg='black')
         self.txtcover.pack(side=LEFT, padx=5)
+        self.txtcover.drop_target_register(DND_FILES)
         ttips.Create(self.txtcover, text=_('Select an image file as front cover by clicking the button'))
         self.btncover = Button(c3, text=_('Cover'), command=self.btnLoadCover)
         self.btncover.pack(side=LEFT)
@@ -154,6 +157,7 @@ class EyedWin:
 
         self.txtload_audio = Entry(c6, width=53, bg='white', fg='black')
         self.txtload_audio.pack(side=LEFT, padx=5, pady=2)
+        self.txtload_audio.drop_target_register(DND_FILES)
         ttips.Create(self.txtload_audio, text=_('Select an audio file by clicking the button'))
         self.btnload_audio = Button(c6, text=_('Load Audio'), width=15, command=self.btnLoadAudio)
         self.btnload_audio.pack(side=LEFT)
@@ -198,6 +202,9 @@ class EyedWin:
         window.bind('<Control-L>', lambda e: self.btnClearFields())
         window.bind('<Control-l>', lambda e: self.btnClearFields())
         window.bind('<Button-3><ButtonRelease-3>', self.mouse)
+        self.txtlyrics.dnd_bind('<<Drop>>', self.dnd)
+        self.txtcover.dnd_bind('<<Drop>>', self.dnd)
+        self.txtload_audio.dnd_bind('<<Drop>>', self.dnd)
 
     # mouse menu
     def mouse(self, event):
@@ -206,6 +213,35 @@ class EyedWin:
         self.mouseMenu.entryconfigure(_("Copy"), command=lambda: w.event_generate('<<Copy>>'))
         self.mouseMenu.entryconfigure(_("Paste"), command=lambda: w.event_generate('<<Paste>>'))
         self.mouseMenu.tk_popup(event.x_root, event.y_root)
+
+    # Drag and Drop function
+    def dnd(self, event):
+        lyrics = self.txtlyrics
+        cover = self.txtcover
+        audio = self.txtload_audio
+        _event = str(event.data).replace('{', '').replace('}', '')
+        if _event.endswith('.txt'):
+            if lyrics == '':
+                lyrics.insert(INSERT, _event)
+            else:
+                lyrics.delete(0, END)
+                lyrics.insert(INSERT, _event)
+        if _event.endswith('.png') or _event.endswith('.jpg') or _event.endswith('.jpeg'):
+            if cover == '':
+                cover.insert(INSERT, _event)
+            else:
+                cover.delete(0, END)
+                cover.insert(INSERT, _event)
+        if _event.endswith('.mp3'):
+            if audio == '':
+                audio.insert(INSERT, _event)
+                self.displayinfo()
+            else:
+                self.btnClearFields()
+                audio.insert(INSERT, _event)
+                self.displayinfo()
+        else:
+            pass
 
     # save all new tags
     def btnSaveTags(self):
@@ -236,20 +272,20 @@ class EyedWin:
             mp3.tag.release_date = year
             mp3.tag.original_release_date = year
             mp3.tag.composer = composer
-            mp3.tag.comments.set(comment.replace('\n', ' '))
+            mp3.tag.comments.set(comment.replace('\n', ''))
             if lyrics == '':
                 pass
-            if lyrics != '':
+            else:
                 mp3.tag.lyrics.set(open(lyrics).read())
             if cover == '':
                 showinfo(title=_('Error'), message=_("Cover file wasn't selected."))
-            if cover != '':
+            else:
                 imageData = open(cover, 'rb').read()
                 mp3.tag.images.set(3, imageData, 'image/jpg')
                 mp3.tag.save()
                 sleep(0.2)
                 self.btnClearFields()
-                showinfo(title='Status', message=_('All audio tags are saved.'), detail=_('Reaload the audio file to make sure the new tags were set.'))
+                showinfo(title='Status', message=_('All audio tags are saved.'), detail=_('Reload the audio file to make sure the new tags were set.'))
 
     # audio file chooser
     def btnLoadAudio(self):
@@ -267,7 +303,6 @@ class EyedWin:
         lyrics = askopenfilename(title=_('Open a text file with lyrics'), initialdir='~/', filetypes={'text .txt'})
         if self.txtlyrics.get() == '':
             self.txtlyrics.insert(INSERT, lyrics)
-            #self.txtlyrics.insert(1, '\\')
         else:
             self.txtlyrics.delete(0, END)
             self.txtlyrics.insert(INSERT, lyrics)
@@ -277,7 +312,6 @@ class EyedWin:
         cover = askopenfilename(title=_('Choose an image file as cover'), initialdir='~/Pictures', filetypes={('images', ('.jpg', '.jpeg', '.png'))})
         if self.txtcover.get() == '':
             self.txtcover.insert(INSERT, cover)
-            #self.txtcover.insert(1, '\\')
         else:
             self.txtcover.delete(0, END)
             self.txtcover.insert(INSERT, cover)
@@ -307,13 +341,12 @@ class EyedWin:
         self.txtalbum_artist.insert(INSERT, str(tag.album_artist))
         self.txtgenre.insert(INSERT, str(tag.genre))
         self.txtcomposer.insert(INSERT, str(tag.composer))
+        self.txtyear.insert(INSERT, str(tag.recording_date).replace('None', ''))
+        self.txtcomment.insert(INSERT, str(tag.comments[0].text))
         if str(tag.track_num):
             self.txttrack_num.insert(INSERT, str(tag.track_num[0]).replace('None', '0'))
         else:
             self.txttrack_num.insert(INSERT, str(tag.track_num[2]))
-
-        self.txtyear.insert(INSERT, str(tag.recording_date).replace('None', ''))
-        self.txtcomment.insert(INSERT, str(tag.comments[0].text))
 
     def btnRemoveAllTags(self):
         audio = self.txtload_audio.get()
@@ -359,7 +392,7 @@ class EyedWin:
             pass
 
 
-window = Tk()
+window = TkinterDnD.Tk()
 EyedWin(window)
 icon_win = PhotoImage(file='icons/eyed3.png')
 window.tk.call('wm', 'iconphoto', window._w, icon_win)
