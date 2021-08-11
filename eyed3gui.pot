@@ -1,0 +1,220 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-03-02 21:02-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.3\n"
+"X-Poedit-KeywordsList: _\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: eyed3.ui\n"
+"X-Poedit-SearchPath-1: eyed3gtk.py\n"
+
+#: eyed3.ui:18
+msgid "eyeD3"
+msgstr ""
+
+#: eyed3.ui:36
+msgid "Title"
+msgstr ""
+
+#: eyed3.ui:49
+msgid "Artist"
+msgstr ""
+
+#: eyed3.ui:62
+msgid "Album"
+msgstr ""
+
+#: eyed3.ui:75
+msgid "Album Artist"
+msgstr ""
+
+#: eyed3.ui:137
+msgid "Track Number"
+msgstr ""
+
+#: eyed3.ui:150
+msgid "Genre"
+msgstr ""
+
+#: eyed3.ui:163
+msgid "Year"
+msgstr ""
+
+#: eyed3.ui:206
+msgid "Select a txt file with lyrics by clicking the button"
+msgstr ""
+
+#: eyed3.ui:221
+msgid "Select an image file as front cover by clicking the button"
+msgstr ""
+
+#: eyed3.ui:232
+msgid "Cover"
+msgstr ""
+
+#: eyed3.ui:238
+msgid "Select an image file as front cover"
+msgstr ""
+
+#: eyed3.ui:248
+msgid "Lyrics"
+msgstr ""
+
+#: eyed3.ui:254
+msgid "Select a txt file with lyrics"
+msgstr ""
+
+#: eyed3.ui:268
+msgid "Select an audio file by clicking the button"
+msgstr ""
+
+#: eyed3.ui:277
+msgid "Load Audio"
+msgstr ""
+
+#: eyed3.ui:283
+msgid "Select an audio file, Ctrl+O"
+msgstr ""
+
+#: eyed3.ui:293
+msgid "Save Tags"
+msgstr ""
+
+#: eyed3.ui:299
+msgid "Save all tags into the audio file, Ctrl+S"
+msgstr ""
+
+#: eyed3.ui:310
+msgid "Clear Fields"
+msgstr ""
+
+#: eyed3.ui:316
+msgid "Clear all fields, Ctrl+L"
+msgstr ""
+
+#: eyed3.ui:355
+msgid "Remove All Tags"
+msgstr ""
+
+#: eyed3.ui:361
+msgid "Remove completly all tags from audio"
+msgstr ""
+
+#: eyed3.ui:396
+msgid "File"
+msgstr ""
+
+#: eyed3.ui:406
+msgid "Load audio file..."
+msgstr ""
+
+#: eyed3.ui:416
+msgid "Save all tags"
+msgstr ""
+
+#: eyed3.ui:432
+msgid "Exit"
+msgstr ""
+
+#: eyed3.ui:446
+msgid "Help"
+msgstr ""
+
+#: eyed3.ui:456
+msgid "GitHub"
+msgstr ""
+
+#: eyed3.ui:466
+msgid "License"
+msgstr ""
+
+#: eyed3.ui:476
+msgid "Documentation"
+msgstr ""
+
+#: eyed3.ui:486
+msgid "Search for new updates..."
+msgstr ""
+
+#: eyed3.ui:502
+msgid "About"
+msgstr ""
+
+#: eyed3.ui:527
+msgid "Composer(s)"
+msgstr ""
+
+#: eyed3.ui:552
+msgid "Comments"
+msgstr ""
+
+#: eyed3.ui:578
+msgid "About eyeD3 Gtk Gui"
+msgstr ""
+
+#: eyed3.ui:586
+msgid ""
+"This program was created in order to facilitate its use through a graphic interface, because it already exists and was based on the eyeD3 command line tool.\n"
+"Only necessary credit is that if the program is changed the respective creators names must be maintained of both softwares eyeD3 command line tool and the eyeD3 creator Gtk Gui must be maintained."
+msgstr ""
+
+#: eyed3.ui:589
+msgid "GitHub eyeD3 Gtk Gui"
+msgstr ""
+
+#: eyed3.ui:592
+msgid "Alex Pinheiro"
+msgstr ""
+
+#: eyed3.ui:623 eyed3.ui:762 eyed3.ui:914
+msgid "Status"
+msgstr ""
+
+#: eyed3.ui:669 eyed3gtk.py:141
+msgid "All audio tags are saved."
+msgstr ""
+
+#: eyed3.ui:683
+msgid "Choose an audio file"
+msgstr ""
+
+#: eyed3.ui:748
+msgid "*.mp3"
+msgstr ""
+
+#: eyed3.ui:900
+msgid "*.png, *.jpg, *.jpeg, *.gif"
+msgstr ""
+
+#: eyed3.ui:1046
+msgid "*.txt"
+msgstr ""
+
+#: eyed3gtk.py:96 eyed3gtk.py:273
+msgid "There's a new software version available to download."
+msgstr ""
+
+#: eyed3gtk.py:99
+msgid "Software has the last version installed."
+msgstr ""
+
+#: eyed3gtk.py:124
+msgid "You need to load an audio file to save tags."
+msgstr ""
+
+#: eyed3gtk.py:238
+msgid "You need to load an audio file to remove tags."
+msgstr ""
