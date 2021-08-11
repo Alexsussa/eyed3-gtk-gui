@@ -1,4 +1,4 @@
-# eyeD3 Gtk Gui
+# eyeD3 Gui
 
 English:
 
