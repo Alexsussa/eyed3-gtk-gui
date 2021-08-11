@@ -1,0 +1,346 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-08-09 16:10-0300\n"
+"PO-Revision-Date: 2021-08-09 17:05-0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.3\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-KeywordsList: _\n"
+"X-Poedit-Basepath: ../..\n"
+"X-Poedit-SearchPath-0: eyed3Qt.py\n"
+"X-Poedit-SearchPath-1: common.py\n"
+
+#: common.py:40
+msgid "You need to load an audio file to save tags."
+msgstr "Você precisa carregar um arquivo de áudio para salvar as tags."
+
+#: common.py:73
+msgid ""
+"All audio tags are saved.\n"
+"Reload the audio file to make sure the new tags were set."
+msgstr ""
+"Todas as tags do áudio foram salvas.\n"
+"Recarregue o arquivo de áudio para ter certeza de que as tags foram "
+"configuradas."
+
+#: common.py:136
+msgid "You need to load an audio file to remove tags."
+msgstr "Você precisa carregar um arquivo de áudio para remover as tags."
+
+#: common.py:145
+msgid "Open an audio file"
+msgstr "Abrir um arquivo de áudio"
+
+#: common.py:145
+msgid "~/Music"
+msgstr "~/Música"
+
+#: common.py:145
+msgid "Audio file (*.mp3)"
+msgstr "Arquivo de áudio (*.mp3)"
+
+#: common.py:157
+msgid "Open a text file containing music lyrics"
+msgstr "Selecione um arquivo de texto com as letras da música"
+
+#: common.py:157
+msgid "~/Documents"
+msgstr "~/Documentos"
+
+#: common.py:157
+msgid "Text file (*.txt)"
+msgstr "Arquivo de texto (*.txt)"
+
+#: common.py:161
+msgid "Open a image file"
+msgstr "Abrir um arquivo de imagem"
+
+#: common.py:161
+msgid "~/Images"
+msgstr "~/Imagens"
+
+#: common.py:161
+msgid "Images file (*.png *jpg)"
+msgstr "Arquivos de imagem (*.png *.jpg)"
+
+#: common.py:202
+msgid "Warning"
+msgstr "Aviso"
+
+#: common.py:210
+msgid "Information"
+msgstr "Informação"
+
+#: common.py:220 common.py:229
+msgid "There is a new software version available."
+msgstr "Há uma nova versão do software disponível."
+
+#: common.py:223
+msgid "You have the latest software version installed."
+msgstr "Você já tem a última versão do software instalada."
+
+#: common.py:257
+msgid "About eyeD3 Gui"
+msgstr "Sobre eyeD3 Gui"
+
+#: eyed3Qt.py:42
+msgid "File"
+msgstr "Arquivo"
+
+#: eyed3Qt.py:43
+msgid "Load audio file..."
+msgstr "Carregar arquivo de áudio..."
+
+#: eyed3Qt.py:44
+msgid "Save all tags"
+msgstr "Salvar tags"
+
+#: eyed3Qt.py:46
+msgid "Exit"
+msgstr "Sair"
+
+#: eyed3Qt.py:48
+msgid "Help"
+msgstr "Ajuda"
+
+#: eyed3Qt.py:49
+msgid "GitHub"
+msgstr "GitHub"
+
+#: eyed3Qt.py:50
+msgid "License"
+msgstr "Licença"
+
+#: eyed3Qt.py:51
+msgid "Documentation"
+msgstr "Documentação"
+
+#: eyed3Qt.py:52
+msgid "Search for new updates..."
+msgstr "Procurar por novas atualizações..."
+
+#: eyed3Qt.py:54
+msgid "About"
+msgstr "Sobre"
+
+#: eyed3Qt.py:61
+msgid "Title"
+msgstr "Título"
+
+#: eyed3Qt.py:65
+msgid "Music title..."
+msgstr "Título da música..."
+
+#: eyed3Qt.py:67
+msgid "Artist"
+msgstr "Artista"
+
+#: eyed3Qt.py:71
+msgid "Artist or band name..."
+msgstr "Nome do artista ou banda..."
+
+#: eyed3Qt.py:73
+msgid "Track Number"
+msgstr "Número da faixa"
+
+#: eyed3Qt.py:77
+msgid "Num..."
+msgstr "Nº..."
+
+#: eyed3Qt.py:79
+msgid "Album"
+msgstr "Álbum"
+
+#: eyed3Qt.py:83
+msgid "Album name..."
+msgstr "Nome do álbum..."
+
+#: eyed3Qt.py:85
+msgid "Album Artist"
+msgstr "Artista Álbum"
+
+#: eyed3Qt.py:89
+msgid "Album artist or band..."
+msgstr "Artista ou banda do álbum..."
+
+#: eyed3Qt.py:91
+msgid "Remove All Tags"
+msgstr "Remover as tags"
+
+#: eyed3Qt.py:94
+msgid "Genre"
+msgstr "Gênero"
+
+#: eyed3Qt.py:98
+msgid "Music genre..."
+msgstr "Gênero da música..."
+
+#: eyed3Qt.py:100
+msgid "Year"
+msgstr "Ano"
+
+#: eyed3Qt.py:104
+msgid "Year..."
+msgstr "Ano..."
+
+#: eyed3Qt.py:108
+msgid "Load a text file with lyrics..."
+msgstr "Carregar as letras da música..."
+
+#: eyed3Qt.py:109
+msgid "Lyrics"
+msgstr "Letras"
+
+#: eyed3Qt.py:114
+msgid "Load an audio file..."
+msgstr "Carregar arquivo de áudio..."
+
+#: eyed3Qt.py:115
+msgid "Load Audio"
+msgstr "Carregar áudio"
+
+#: eyed3Qt.py:118
+msgid "Clear Fields"
+msgstr "Limpar campos"
+
+#: eyed3Qt.py:121
+msgid "Save Tags"
+msgstr "Salvar tags"
+
+#: eyed3Qt.py:124
+msgid "Composer(s)"
+msgstr "Compositor(es)"
+
+#: eyed3Qt.py:128
+msgid "Composer(s) name(s)..."
+msgstr "Nome(s} do(s) compositor(es)..."
+
+#: eyed3Qt.py:132
+msgid "Load an album cover..."
+msgstr "Carregar uma capa de álbum..."
+
+#: eyed3Qt.py:133
+msgid "Cover"
+msgstr "Capa"
+
+#: eyed3Qt.py:136
+msgid "Comments"
+msgstr "Comentários"
+
+#: eyed3Qt.py:140
+msgid "Comments..."
+msgstr "Comentários..."
+
+#~ msgid "Load an image file for music cover..."
+#~ msgstr "Escolha uma imagem como capa do álbum..."
+
+#, fuzzy
+#~| msgid "Open a text file with lyrics"
+#~ msgid "Open a text file"
+#~ msgstr "Escolha um arquivo de texto com as letras da música"
+
+#~ msgid "Remove completly all tags from audio"
+#~ msgstr "Remove completamente todas as tags do áudio"
+
+#~ msgid "Select a txt file with lyrics by clicking the button"
+#~ msgstr ""
+#~ "Selecione um arquivo de texto com as letras da música clicando no botão"
+
+#~ msgid "Select an image file as front cover by clicking the button"
+#~ msgstr "Selecione uma imagem como capa de álbum clicando no botão"
+
+#~ msgid "Select an audio file by clicking the button"
+#~ msgstr "Selecione um arquivo de áudio clicando no botão"
+
+#~ msgid "Select an audio file, Ctrl+O"
+#~ msgstr "Selecione um arquivo de áudio, Ctrl+O"
+
+#~ msgid "Clear all fields, Ctrl+L"
+#~ msgstr "Limpar todos os campos, Ctrl+L"
+
+#~ msgid "Save all tags into the audio file, Ctrl+S"
+#~ msgstr "Salvar todas as tags dentro do arquivo de áudio, Ctrl+S"
+
+#~ msgid "Cut"
+#~ msgstr "Cortar"
+
+#~ msgid "Copy"
+#~ msgstr "Copiar"
+
+#~ msgid "Paste"
+#~ msgstr "Colar"
+
+#~ msgid "Fail"
+#~ msgstr "Falha"
+
+#~ msgid "Error"
+#~ msgstr "Erro"
+
+#~ msgid "Cover file wasn't selected."
+#~ msgstr "Capa não selecionada."
+
+#~ msgid "All audio tags are saved."
+#~ msgstr "Todas as tags de áudio foram salvas."
+
+#~ msgid "New update"
+#~ msgstr "Nova atualização"
+
+#~ msgid "Updated"
+#~ msgstr "Atualizado"
+
+#~ msgid "eyeD3"
+#~ msgstr "eyeD3"
+
+#~ msgid ""
+#~ "This program was created in order to facilitate its use through a graphic "
+#~ "interface, because it already exists and was based on the eyeD3 command "
+#~ "line tool.\n"
+#~ "Only necessary credit is that if the program is changed the respective "
+#~ "creators names must be maintained of both softwares eyeD3 command line "
+#~ "tool and the eyeD3 creator Gtk Gui must be maintained."
+#~ msgstr ""
+#~ "Esse programa foi criado com intuito de facilitar seu uso através de uma "
+#~ "interface, pois o mesmo já existe e foi baseado no eyeD3 command-line-"
+#~ "tool.\n"
+#~ "Único crédito exigido é que se o programa for alterado deixar os nomes "
+#~ "dos respectivos criadores tanto do eyeD3 command-line-tool quanto ao do "
+#~ "criador do eyeD3 Gtk Gui."
+
+#~ msgid "GitHub eyeD3 Gtk Gui"
+#~ msgstr "GitHub eyeD3 Gtk Gui"
+
+#~ msgid "Alex Pinheiro"
+#~ msgstr "Alex Pinheiro"
+
+#~ msgid "Status"
+#~ msgstr "Status"
+
+#~ msgid "Choose an audio file"
+#~ msgstr "Selecione um arquivo de áudio"
+
+#~ msgid "*.mp3"
+#~ msgstr "*.mp3"
+
+#~ msgid "*.png, *.jpg, *.jpeg, *.gif"
+#~ msgstr "*.png, *.jpg, *.jpeg, *.gif"
+
+#~ msgid "*.txt"
+#~ msgstr "*.txt"
+
+#~ msgid "All tags from audio are update"
+#~ msgstr "Todas as tags do áudio foram atualizadas"
+
+#~ msgid "Aj_uda"
+#~ msgstr "Ajuda"
