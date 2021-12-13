@@ -1,6 +1,6 @@
 # eyeD3 Gui
 
-English:
+## English:
 
 eyeD3 Gui is simple gui based on <a href="https://eyed3.readthedocs.io/en/latest/#documentation-index" target="_blank"> eyeD3 command line tool</a>
 
@@ -12,7 +12,7 @@ If you're a translator you can help the project translating the eyed3.pot file t
 
 <a href="https://github.com/Alexsussa/eyed3-gtk-gui/releases" target="_blank">Download</a> eyeD3 Gui in .deb or .AppImage.
 
-Português Brasil:
+## Português Brasil:
 
 eyeD3 Gui é uma interface simples baseada na <a href="https://eyed3.readthedocs.io/en/latest/#documentation-index" target="_blank"> ferramenta de linha de comando eyeD3</a>
 
