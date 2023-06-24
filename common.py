@@ -10,7 +10,7 @@ import webbrowser
 from drag_n_drop import Audio
 
 APPNAME = 'eyed3'
-LOCATION = os.path.abspath('locale')
+LOCATION = os.path.abspath('/usr/share/locale')
 
 gettext.bindtextdomain(APPNAME, LOCATION)
 gettext.textdomain(APPNAME)
@@ -21,7 +21,7 @@ class Utils():
     def __init__(self):
         super(Utils, self).__init__()
 
-        self.winIcon = QIcon('icons/eyed3.png')
+        self.winIcon = QIcon('/usr/share/icons/hicolor/256x256/apps/eyed3.png')
 
         self.loadAudio_txt = Audio()
 
@@ -74,6 +74,7 @@ class Utils():
 
             Utils.clearFields(self)
             Utils.popup_info(self, msg=_('All audio tags are saved.\nReload the audio file to make sure the new tags were set.'))
+
 
     def displayAudioTags(self):
         tag = id3.Tag()
@@ -133,6 +134,7 @@ class Utils():
         except IndexError:
             self.comments_txt.setText('')
 
+
     def removeAllTags(self):
         audio_file = self.loadAudio_txt.text()
         if audio_file == '':
@@ -143,6 +145,7 @@ class Utils():
             mp3.parse(audio_file, [2, 4, 0])
             mp3.save(audio_file)
             Utils.clearFields_2(self)
+
         
     def loadAudioFile(self, dialog):
         audio_file = dialog.getOpenFileName(caption=_('Open an audio file'), directory=os.path.expanduser(_('~/Music')), filter=_('Audio file (*.mp3)'), options=dialog.DontUseNativeDialog)
@@ -156,22 +159,26 @@ class Utils():
             self.loadAudio_txt.setText(audio_file[0])
             Utils.displayAudioTags(self)
 
+
     def loadLyricsFile(self, dialog):
         lyrics_file = dialog.getOpenFileName(caption=_('Open a text file containing music lyrics'), directory=os.path.expanduser(_('~/Documents')), filter=_('Text file (*.txt)'), options=dialog.DontUseNativeDialog)
         self.loadLyrics_txt.setText(str(lyrics_file[0]))
+
 
     def loadCoverFile(self, dialog):
         cover_file = dialog.getOpenFileName(caption=_('Open a image file'), directory=os.path.expanduser(_('~/Images')), filter=_('Images file (*.png *jpg *.jpeg)'), options=dialog.DontUseNativeDialog)
         self.loadCover_txt.setText(str(cover_file[0]))
 
+
     def genreList(self, combo):
         genres = []
-        genre_file = open('genres.txt').readlines()
+        genre_file = open('/usr/share/doc/eyed3gui/genres.txt').readlines()
         for g in genre_file:
             if g not in genres:
                 genres.append(str(g).strip())
         combo.addItems(tuple(genres))
         combo.setCurrentText('')
+
 
     def clearFields(self):
         self.title_txt.setText('')
@@ -186,6 +193,7 @@ class Utils():
         self.loadAudio_txt.setText('')
         self.composer_txt.setText('')
         self.comments_txt.setText('')
+
     
     def clearFields_2(self):
         self.title_txt.setText('')
@@ -200,6 +208,7 @@ class Utils():
         self.composer_txt.setText('')
         self.comments_txt.setText('')
 
+
     def popup_warning(self, msg):
         popup = QMessageBox()
         popup.setWindowTitle(_('Warning'))
@@ -207,6 +216,7 @@ class Utils():
         popup.setIcon(popup.Warning)
         popup.setText(msg)
         popup.exec_()
+
 
     def popup_info(self, msg):
         popup = QMessageBox()
@@ -216,8 +226,9 @@ class Utils():
         popup.setText(msg)
         popup.exec_()
 
+
     def checkForUpdates(self):
-        __version__ = 0.4
+        __version__ = 0.5
         new_version = urlopen('https://raw.githubusercontent.com/Alexsussa/eyed3-gtk-gui/master/version').read()
         if float(new_version) > float(__version__):
             Utils.popup_info(self, msg=_('There is a new software version available.'))
@@ -225,24 +236,26 @@ class Utils():
         else:
             Utils.popup_info(self, msg=_('You have the latest software version installed.'))
 
+
     def checkAutoUpdates(self):
-        __version__ = 0.4
+        __version__ = 0.5
         new_version = urlopen('https://raw.githubusercontent.com/Alexsussa/eyed3-gtk-gui/master/version').read()
         if float(new_version) > float(__version__):
             Utils.popup_info(self, msg=_('There is a new software version available.'))
             webbrowser.open('https://github.com/Alexsussa/eyed3-gtk-gui/releases/')
+            
 
     def aboutEyed3(self):
         logo = QLabel('')
-        logo.setStyleSheet('background-image: url(icons/eyed3.png); background-repeat: no-repeat; width: 100%; height: 100%;')
+        logo.setStyleSheet('background-image: url(/usr/share/icons/hicolor/256x256/apps/eyed3.png); background-repeat: no-repeat; width: 100%; height: 100%;')
         logo.setWindowIcon(QIcon(self.winIcon))
         logo.setFixedSize(256, 256)
         name = QLabel('eyeD3 Gui')
         name.setFixedHeight(20)
-        version = QLabel('v0.4')
+        version = QLabel('v0.5')
         version.setFixedHeight(10)
 
-        license_file = open('COPYING', 'r').read()
+        license_file = open('/usr/share/doc/eyed3gui/COPYING', 'r').read()
         licen = QTextEdit()
         licen.setReadOnly(True)
         licen.setText(license_file)

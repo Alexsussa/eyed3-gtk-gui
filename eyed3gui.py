@@ -12,7 +12,7 @@ import os
 import sys
 
 APPNAME = 'eyed3'
-LOCATION = os.path.abspath('locale')
+LOCATION = os.path.abspath('/usr/share/locale')
 
 gettext.bindtextdomain(APPNAME, LOCATION)
 gettext.textdomain(APPNAME)
@@ -23,9 +23,10 @@ class Eyed3():
     def __init__(self):
         super().__init__()
 
+
     def setup_ui(self, MainWindow):
         # Setting images application
-        self.winIcon = QIcon('icons/eyed3.png')
+        self.winIcon = QIcon('/usr/share/icons/hicolor/256x256/apps/eyed3.png')
 
         # Setting central widget and main window
         self.centralwidget = QWidget(MainWindow)
@@ -39,6 +40,7 @@ class Eyed3():
         self.menuFile = QMenu(_('File'), self.centralwidget)
         self.menuFile.addAction(_('Load audio file...'), lambda: u.loadAudioFile(self, QFileDialog), 'Ctrl+O')
         self.menuFile.addAction(_('Save all tags'), lambda: u.saveTags(self), 'Ctrl+S')
+        self.menuFile.addAction(_('Change theme'), lambda: [self.changeTheme(), self.checkTheme()], 'Ctrl+J')
         self.menuFile.addSeparator()
         self.menuFile.addAction(_('Exit'), MainWindow.close, 'Ctrl+Q')
 
@@ -118,6 +120,7 @@ class Eyed3():
         self.loadAudio_txt.setGeometry(QRect(20, 160, 270, 30))
         self.loadAudio_txt.setPlaceholderText(_('Load an audio file...'))
         self.loadAudio_txt.setAcceptDrops(True)
+        self.loadAudio_txt.textChanged.connect(lambda: self.loadAudioIsEmpty())
         self.loadAudio_btn = QPushButton(_('Load Audio'), self.centralwidget, clicked=lambda: u.loadAudioFile(self, QFileDialog))
         self.loadAudio_btn.setGeometry(QRect(305, 160, 150, 30))
 
@@ -150,15 +153,21 @@ class Eyed3():
 
         self.bg_img = QLabel(self.centralwidget)
         self.bg_img.setGeometry(QRect(256, 355, 256, 256))
-        self.bg_img.setStyleSheet('background-image: url(bg.png); background-repeat: no-repeat; width: 100%; height: 100%;')
+        self.bg_img.setStyleSheet('background-image: url(/usr/share/icons/hicolor/256x256/apps/bg.png); background-repeat: no-repeat; width: 100%; height: 100%;')
 
         # Functions running in background
         u.genreList(self, self.genre_txt)
+        self.checkTheme()
 
         self.timer = QTimer()
         self.timer.setInterval(300000)
         self.timer.timeout.connect(lambda: u.checkAutoUpdates(self))
         self.timer.start()
+
+        """self.timer2 = QTimer()
+        self.timer2.setInterval(100)
+        self.timer2.timeout.connect(lambda: app.setStyleSheet(open('themes/default-theme.css', 'r').read()))
+        self.timer2.start()"""
 
         # Keyboard shortcuts
         clean_fields = QShortcut(QKeySequence('Ctrl+L'), self.cleanFields_btn)
@@ -167,14 +176,63 @@ class Eyed3():
         displayTagsOnDrop = QShortcut(QKeySequence('Ctrl+Return'), self.loadAudio_txt)
         displayTagsOnDrop.activated.connect(lambda: u.displayAudioTags(self))
 
+    
+    def checkTheme(self):
+        import json
+        configPath = os.path.abspath(os.path.expanduser('~/.config/eyed3gui/'))
+        if not os.path.exists(configPath):
+            os.makedirs(configPath)
+            with open(f'{configPath}/config.json', 'w') as file:
+                json.dump({'current theme': 'default-theme'}, file, indent=4)
+        with open(f'{configPath}/config.json', 'r') as configFileRead:
+            loadJson = json.loads(configFileRead.read())
+            configFileRead.close()
+            currentTheme = loadJson['current theme']
+            theme = ''
+            if currentTheme == 'default-theme':
+                theme = 'default-theme.css'
+            else:
+                theme = 'dark-theme.css'
+            app.setStyleSheet(open(f'/usr/share/doc/eyed3gui/themes/{theme}', 'r').read())
+
+    
+    def changeTheme(self):
+        import json
+        configPath = os.path.abspath(os.path.expanduser('~/.config/eyed3gui/'))
+        configFile = os.path.join(f'{configPath}/' + 'config.json')
+        with open(f'{configFile}', 'r') as configFileRead:
+            loadJson = json.loads(configFileRead.read())
+            configFileRead.close()
+            currentTheme = loadJson['current theme']
+
+        with open(f'{configFile}', 'w') as configFileWrite:
+            themeToSave = ''
+            if currentTheme == 'default-theme':
+                themeToSave = {'current theme': 'dark-theme'}
+            else:
+                themeToSave = {'current theme': 'default-theme'}
+            json.dump(themeToSave, configFileWrite, indent=4)
+
+
+    def loadAudioIsEmpty(self):
+        try:
+            if self.loadAudio_txt.text() == '':
+                pass
+            else:
+                u.displayAudioTags(self)
+        except:
+            pass
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
+    app.setStyleSheet(open('/usr/share/doc/eyed3gui/themes/default-theme.css', 'r').read())
 
     #Setting translator
     translator = QTranslator()
     locale = QLocale().system().name()
-    library = QLibraryInfo.location(QLibraryInfo.TranslationsPath)
+    #library = QLibraryInfo.location(QLibraryInfo.TranslationsPath)
+    library = os.path.abspath('/usr/share/doc/eyed3gui/translations')
     translator.load('qt_' + locale, library)
     app.installTranslator(translator)
 
