@@ -7,252 +7,250 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-09 16:10-0300\n"
-"PO-Revision-Date: 2021-08-09 17:05-0300\n"
+"POT-Creation-Date: 2023-06-23 11:35-0300\n"
+"PO-Revision-Date: 2023-06-23 12:15-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.3\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 3.0.1\n"
 "X-Poedit-KeywordsList: _\n"
-"X-Poedit-Basepath: ../..\n"
-"X-Poedit-SearchPath-0: eyed3Qt.py\n"
-"X-Poedit-SearchPath-1: common.py\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: common.py\n"
+"X-Poedit-SearchPath-1: drag_n_drop.py\n"
+"X-Poedit-SearchPath-2: eyed3gui.py\n"
+"X-Poedit-SearchPath-3: setup.py\n"
 
-#: common.py:40
+#: common.py:43
 msgid "You need to load an audio file to save tags."
 msgstr "Você precisa carregar um arquivo de áudio para salvar as tags."
 
-#: common.py:73
+#: common.py:76
 msgid ""
 "All audio tags are saved.\n"
 "Reload the audio file to make sure the new tags were set."
 msgstr ""
-"Todas as tags do áudio foram salvas.\n"
+"Todas as tags foram salvas.\n"
 "Recarregue o arquivo de áudio para ter certeza de que as tags foram "
 "configuradas."
 
-#: common.py:136
+#: common.py:141
 msgid "You need to load an audio file to remove tags."
 msgstr "Você precisa carregar um arquivo de áudio para remover as tags."
 
-#: common.py:145
+#: common.py:151
 msgid "Open an audio file"
 msgstr "Abrir um arquivo de áudio"
 
-#: common.py:145
+#: common.py:151
 msgid "~/Music"
 msgstr "~/Música"
 
-#: common.py:145
+#: common.py:151
 msgid "Audio file (*.mp3)"
 msgstr "Arquivo de áudio (*.mp3)"
 
-#: common.py:157
+#: common.py:164
 msgid "Open a text file containing music lyrics"
-msgstr "Selecione um arquivo de texto com as letras da música"
+msgstr "Escolha um arquivo de texto com as letras da música"
 
-#: common.py:157
+#: common.py:164
 msgid "~/Documents"
 msgstr "~/Documentos"
 
-#: common.py:157
+#: common.py:164
 msgid "Text file (*.txt)"
 msgstr "Arquivo de texto (*.txt)"
 
-#: common.py:161
+#: common.py:169
 msgid "Open a image file"
 msgstr "Abrir um arquivo de imagem"
 
-#: common.py:161
+#: common.py:169
 msgid "~/Images"
-msgstr "~/Imagens"
+msgstr "~/Images"
 
-#: common.py:161
-msgid "Images file (*.png *jpg)"
-msgstr "Arquivos de imagem (*.png *.jpg)"
+#: common.py:169
+msgid "Images file (*.png *jpg *.jpeg)"
+msgstr "Arquivos de imagens (*.png *.jpg *.jpeg)"
 
-#: common.py:202
+#: common.py:214
 msgid "Warning"
 msgstr "Aviso"
 
-#: common.py:210
+#: common.py:223
 msgid "Information"
 msgstr "Informação"
 
-#: common.py:220 common.py:229
+#: common.py:234 common.py:244
 msgid "There is a new software version available."
-msgstr "Há uma nova versão do software disponível."
+msgstr "Há uma nova versão do software disponível para baixar."
 
-#: common.py:223
+#: common.py:237
 msgid "You have the latest software version installed."
-msgstr "Você já tem a última versão do software instalada."
+msgstr "Software já tem a última versão instalada."
 
-#: common.py:257
+#: common.py:274
 msgid "About eyeD3 Gui"
 msgstr "Sobre eyeD3 Gui"
 
-#: eyed3Qt.py:42
+#: eyed3gui.py:40
 msgid "File"
 msgstr "Arquivo"
 
-#: eyed3Qt.py:43
+#: eyed3gui.py:41
 msgid "Load audio file..."
 msgstr "Carregar arquivo de áudio..."
 
-#: eyed3Qt.py:44
+#: eyed3gui.py:42
 msgid "Save all tags"
 msgstr "Salvar tags"
 
-#: eyed3Qt.py:46
+#: eyed3gui.py:43
+msgid "Change theme"
+msgstr "Alterar tema"
+
+#: eyed3gui.py:45
 msgid "Exit"
 msgstr "Sair"
 
-#: eyed3Qt.py:48
+#: eyed3gui.py:47
 msgid "Help"
 msgstr "Ajuda"
 
-#: eyed3Qt.py:49
+#: eyed3gui.py:48
 msgid "GitHub"
 msgstr "GitHub"
 
-#: eyed3Qt.py:50
+#: eyed3gui.py:49
 msgid "License"
 msgstr "Licença"
 
-#: eyed3Qt.py:51
+#: eyed3gui.py:50
 msgid "Documentation"
 msgstr "Documentação"
 
-#: eyed3Qt.py:52
+#: eyed3gui.py:51
 msgid "Search for new updates..."
 msgstr "Procurar por novas atualizações..."
 
-#: eyed3Qt.py:54
+#: eyed3gui.py:53
 msgid "About"
 msgstr "Sobre"
 
-#: eyed3Qt.py:61
+#: eyed3gui.py:60
 msgid "Title"
 msgstr "Título"
 
-#: eyed3Qt.py:65
+#: eyed3gui.py:64
 msgid "Music title..."
 msgstr "Título da música..."
 
-#: eyed3Qt.py:67
+#: eyed3gui.py:67
 msgid "Artist"
 msgstr "Artista"
 
-#: eyed3Qt.py:71
+#: eyed3gui.py:71
 msgid "Artist or band name..."
-msgstr "Nome do artista ou banda..."
+msgstr "Nome do artista ou da banda..."
 
-#: eyed3Qt.py:73
+#: eyed3gui.py:74
 msgid "Track Number"
 msgstr "Número da faixa"
 
-#: eyed3Qt.py:77
+#: eyed3gui.py:78
 msgid "Num..."
-msgstr "Nº..."
+msgstr "Número..."
 
-#: eyed3Qt.py:79
+#: eyed3gui.py:81
 msgid "Album"
 msgstr "Álbum"
 
-#: eyed3Qt.py:83
+#: eyed3gui.py:85
 msgid "Album name..."
 msgstr "Nome do álbum..."
 
-#: eyed3Qt.py:85
+#: eyed3gui.py:88
 msgid "Album Artist"
 msgstr "Artista Álbum"
 
-#: eyed3Qt.py:89
+#: eyed3gui.py:92
 msgid "Album artist or band..."
-msgstr "Artista ou banda do álbum..."
+msgstr "Artista do álbum ou banda..."
 
-#: eyed3Qt.py:91
+#: eyed3gui.py:95
 msgid "Remove All Tags"
 msgstr "Remover as tags"
 
-#: eyed3Qt.py:94
+#: eyed3gui.py:98
 msgid "Genre"
 msgstr "Gênero"
 
-#: eyed3Qt.py:98
+#: eyed3gui.py:102
 msgid "Music genre..."
 msgstr "Gênero da música..."
 
-#: eyed3Qt.py:100
+#: eyed3gui.py:105
 msgid "Year"
 msgstr "Ano"
 
-#: eyed3Qt.py:104
+#: eyed3gui.py:109
 msgid "Year..."
 msgstr "Ano..."
 
-#: eyed3Qt.py:108
+#: eyed3gui.py:114
 msgid "Load a text file with lyrics..."
-msgstr "Carregar as letras da música..."
+msgstr "Escolha um arquivo de texto com as letras da música..."
 
-#: eyed3Qt.py:109
+#: eyed3gui.py:116
 msgid "Lyrics"
 msgstr "Letras"
 
-#: eyed3Qt.py:114
+#: eyed3gui.py:121
 msgid "Load an audio file..."
-msgstr "Carregar arquivo de áudio..."
+msgstr "Carregar um arquivo de áudio..."
 
-#: eyed3Qt.py:115
+#: eyed3gui.py:124
 msgid "Load Audio"
 msgstr "Carregar áudio"
 
-#: eyed3Qt.py:118
+#: eyed3gui.py:127
 msgid "Clear Fields"
 msgstr "Limpar campos"
 
-#: eyed3Qt.py:121
+#: eyed3gui.py:130
 msgid "Save Tags"
 msgstr "Salvar tags"
 
-#: eyed3Qt.py:124
+#: eyed3gui.py:133
 msgid "Composer(s)"
 msgstr "Compositor(es)"
 
-#: eyed3Qt.py:128
+#: eyed3gui.py:137
 msgid "Composer(s) name(s)..."
-msgstr "Nome(s} do(s) compositor(es)..."
+msgstr "Compositor(es)..."
 
-#: eyed3Qt.py:132
+#: eyed3gui.py:142
 msgid "Load an album cover..."
-msgstr "Carregar uma capa de álbum..."
+msgstr "Carregar capa do álbum..."
 
-#: eyed3Qt.py:133
+#: eyed3gui.py:144
 msgid "Cover"
 msgstr "Capa"
 
-#: eyed3Qt.py:136
+#: eyed3gui.py:147
 msgid "Comments"
 msgstr "Comentários"
 
-#: eyed3Qt.py:140
+#: eyed3gui.py:151
 msgid "Comments..."
 msgstr "Comentários..."
 
-#~ msgid "Load an image file for music cover..."
-#~ msgstr "Escolha uma imagem como capa do álbum..."
-
-#, fuzzy
-#~| msgid "Open a text file with lyrics"
-#~ msgid "Open a text file"
-#~ msgstr "Escolha um arquivo de texto com as letras da música"
-
-#~ msgid "Remove completly all tags from audio"
-#~ msgstr "Remove completamente todas as tags do áudio"
+#~ msgid "eyeD3"
+#~ msgstr "eyeD3"
 
 #~ msgid "Select a txt file with lyrics by clicking the button"
 #~ msgstr ""
@@ -261,47 +259,26 @@ msgstr "Comentários..."
 #~ msgid "Select an image file as front cover by clicking the button"
 #~ msgstr "Selecione uma imagem como capa de álbum clicando no botão"
 
+#~ msgid "Select an image file as front cover"
+#~ msgstr "Selecione uma imagem como capa de álbum"
+
+#~ msgid "Select a txt file with lyrics"
+#~ msgstr "Selecione um arquivo de texto com as letras da música"
+
 #~ msgid "Select an audio file by clicking the button"
 #~ msgstr "Selecione um arquivo de áudio clicando no botão"
 
 #~ msgid "Select an audio file, Ctrl+O"
 #~ msgstr "Selecione um arquivo de áudio, Ctrl+O"
 
-#~ msgid "Clear all fields, Ctrl+L"
-#~ msgstr "Limpar todos os campos, Ctrl+L"
-
 #~ msgid "Save all tags into the audio file, Ctrl+S"
 #~ msgstr "Salvar todas as tags dentro do arquivo de áudio, Ctrl+S"
 
-#~ msgid "Cut"
-#~ msgstr "Cortar"
+#~ msgid "Clear all fields, Ctrl+L"
+#~ msgstr "Limpar todos os campos, Ctrl+L"
 
-#~ msgid "Copy"
-#~ msgstr "Copiar"
-
-#~ msgid "Paste"
-#~ msgstr "Colar"
-
-#~ msgid "Fail"
-#~ msgstr "Falha"
-
-#~ msgid "Error"
-#~ msgstr "Erro"
-
-#~ msgid "Cover file wasn't selected."
-#~ msgstr "Capa não selecionada."
-
-#~ msgid "All audio tags are saved."
-#~ msgstr "Todas as tags de áudio foram salvas."
-
-#~ msgid "New update"
-#~ msgstr "Nova atualização"
-
-#~ msgid "Updated"
-#~ msgstr "Atualizado"
-
-#~ msgid "eyeD3"
-#~ msgstr "eyeD3"
+#~ msgid "Remove completly all tags from audio"
+#~ msgstr "Remove completamente todas as tags do áudio"
 
 #~ msgid ""
 #~ "This program was created in order to facilitate its use through a graphic "
@@ -327,6 +304,9 @@ msgstr "Comentários..."
 #~ msgid "Status"
 #~ msgstr "Status"
 
+#~ msgid "All audio tags are saved."
+#~ msgstr "Todas as tags de áudio foram salvas."
+
 #~ msgid "Choose an audio file"
 #~ msgstr "Selecione um arquivo de áudio"
 
@@ -338,6 +318,33 @@ msgstr "Comentários..."
 
 #~ msgid "*.txt"
 #~ msgstr "*.txt"
+
+#~ msgid "Cut"
+#~ msgstr "Cortar"
+
+#~ msgid "Copy"
+#~ msgstr "Copiar"
+
+#~ msgid "Paste"
+#~ msgstr "Colar"
+
+#~ msgid "Fail"
+#~ msgstr "Falha"
+
+#~ msgid "Error"
+#~ msgstr "Erro"
+
+#~ msgid "Cover file wasn't selected."
+#~ msgstr "Capa não selecionada."
+
+#~ msgid "Choose an image file as cover"
+#~ msgstr "Escolha uma imagem como capa do álbum"
+
+#~ msgid "New update"
+#~ msgstr "Nova atualização"
+
+#~ msgid "Updated"
+#~ msgstr "Atualizado"
 
 #~ msgid "All tags from audio are update"
 #~ msgstr "Todas as tags do áudio foram atualizadas"
